@@ -1,13 +1,44 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
+import toast from 'react-hot-toast';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-import { SparklesIcon, BookOpenIcon, EnvelopeIcon } from '@heroicons/react/24/outline';
+import { SparklesIcon, BookOpenIcon, EnvelopeIcon, CheckCircleIcon } from '@heroicons/react/24/outline';
 
 export default function BlogComingSoon() {
+  const [email, setEmail] = useState('');
+  const [isSubscribing, setIsSubscribing] = useState(false);
+
+  const handleSubscribe = (e) => {
+    e.preventDefault();
+    
+    if (!email) {
+      toast.error('Please enter your email address');
+      return;
+    }
+    
+    if (!/^\S+@\S+\.\S+$/.test(email)) {
+      toast.error('Please enter a valid email address');
+      return;
+    }
+    
+    setIsSubscribing(true);
+    
+    // Simulate API call
+    setTimeout(() => {
+      setIsSubscribing(false);
+      setEmail('');
+      toast.success('Thank you for subscribing! We\'ll notify you when we launch.');
+    }, 1500);
+  };
   return (
     <main className="min-h-screen flex flex-col">
+      {/* Toast Notifications */}
+      <div className="fixed top-4 right-4 z-50">
+        <div className="space-y-2" />
+      </div>
       <Navbar />
       
       {/* Hero Section */}
@@ -48,26 +79,36 @@ export default function BlogComingSoon() {
           </motion.p>
           
           <div className="max-w-md mx-auto">
-            <motion.div 
+            <motion.form 
+              onSubmit={handleSubscribe}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="relative"
+              className="relative w-full max-w-md"
             >
               <div className="flex items-center p-1 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
                 <div className="flex-1 flex items-center px-4 py-3">
                   <EnvelopeIcon className="w-5 h-5 text-gray-400 mr-3" />
                   <input 
                     type="email" 
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your email" 
                     className="w-full bg-transparent border-0 focus:ring-0 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 outline-none"
+                    disabled={isSubscribing}
                   />
                 </div>
-                <button className="px-6 py-3 bg-gradient-to-r from-green-400 to-teal-600 text-white font-medium rounded-lg hover:opacity-90 transition-opacity">
-                  Notify Me
+                <button 
+                  type="submit"
+                  disabled={isSubscribing}
+                  className={`px-6 py-3 bg-gradient-to-r from-green-400 to-teal-600 text-white font-medium rounded-lg transition-opacity ${
+                    isSubscribing ? 'opacity-75 cursor-not-allowed' : 'hover:opacity-90'
+                  }`}
+                >
+                  {isSubscribing ? 'Subscribing...' : 'Notify Me'}
                 </button>
               </div>
-            </motion.div>
+            </motion.form>
             
             <motion.p 
               initial={{ opacity: 0, y: 20 }}

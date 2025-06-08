@@ -24,7 +24,7 @@ const teamMembers = [
     education: "PhD",
     expertise: "Computational Biophysicist and AI expert",
     description: "Currently with the team as COO, developing our unique databank and AI platform.",
-    image: "/api/placeholder/300/300",
+    image: '/sachita.jpg',
     specialties: ["AI/ML Algorithms", "Computational Biology", "Data Science"],
     achievements: "Led development of 3 AI diagnostic platforms",
     linkedin: "#",
@@ -36,7 +36,7 @@ const teamMembers = [
     education: "PhD, Harvard Alumni",
     expertise: "Immunologist, autoimmunity and organ transplant expert",
     description: "Currently with the team to head research and IFA-image annotation.",
-    image: "/api/placeholder/300/300",
+    image: "/arpita.jpg",
     specialties: ["Immunology", "Autoimmune Diseases", "Clinical Research"],
     achievements: "Published 25+ research papers in top-tier journals",
     linkedin: "#",
@@ -48,7 +48,7 @@ const teamMembers = [
     education: "PhD, MD",
     expertise: "Pioneer in immunopathology, autoimmune disease diagnostics and rheumatology",
     description: "Leading expert in autoimmune disease diagnostics with extensive clinical experience.",
-    image: "/api/placeholder/300/300",
+    image: "/sudipta.jpg",
     specialties: ["Immunopathology", "Rheumatology", "Clinical Diagnostics"],
     achievements: "30+ years clinical experience, 100+ publications",
     linkedin: "#",
@@ -60,7 +60,7 @@ const teamMembers = [
     education: "PhD",
     expertise: "Scalable, interpretable AI solutions",
     description: "Specializes in developing scalable AI solutions. As a PI secured multimillion in competitive research funding.",
-    image: "/api/placeholder/300/300",
+    image: "/dilip.jpg",
     specialties: ["AI Architecture", "Machine Learning", "Cloud Computing"],
     achievements: "$5M+ in research funding secured",
     linkedin: "#",
@@ -72,7 +72,7 @@ const teamMembers = [
     education: "MBA",
     expertise: "Relationship management, Business Plans and Policy Management",
     description: "Expert in relationship management, business plans and policy management.",
-    image: "/api/placeholder/300/300",
+    image: "/samiran.jpg",
     specialties: ["Strategic Planning", "Partnership Development", "Market Analysis"],
     achievements: "Built partnerships with 50+ healthcare institutions",
     linkedin: "#",
@@ -84,7 +84,7 @@ const teamMembers = [
     education: "PhD, MBA",
     expertise: "Corporate Finance, HealthTech, MedTech",
     description: "A Biophysicist with immense experience in Corporate Finance, HealthTech, MedTech. Currently with the team to help overall business and raise funding.",
-    image: "/api/placeholder/300/300",
+    image: "/devanathan.jpg",
     specialties: ["Corporate Finance", "HealthTech Strategy", "Investment Planning"],
     achievements: "Raised $50M+ for healthcare startups",
     linkedin: "#",
@@ -98,42 +98,42 @@ const advisors = [
     role: "Pioneer in Venture Capital & Private Equity",
     expertise: "Investment Strategy",
     description: "20+ years in VC/PE with focus on healthcare and technology investments.",
-    icon: ChartBarIcon
+    initials: "PB"
   },
   {
     name: "Dr. Shounak Ghosh",
     role: "Rheumatologist and Clinical Immunologist",
     expertise: "Clinical Medicine",
     description: "Leading clinician with expertise in autoimmune disease treatment and research.",
-    icon: BeakerIcon
+    initials: "SG"
   },
   {
     name: "Prof. Mohan Kankanhalli",
     role: "Deputy Executive Chairman, AI Singapore",
     expertise: "AI Leadership",
     description: "Renowned AI researcher and leader in Singapore's national AI strategy.",
-    icon: LightBulbIcon
+    initials: "MK"
   },
   {
     name: "Dr. Abhinay Mishra",
     role: "Expert in immunotherapy and design of biomedical devices",
     expertise: "Biomedical Engineering",
     description: "Pioneer in biomedical device development and immunotherapy research.",
-    icon: SparklesIcon
+    initials: "AM"
   },
   {
     name: "Rosalima Gupta",
     role: "Physicist and Patent Attorney",
     expertise: "Intellectual Property",
     description: "Expert in IP strategy for healthcare and AI technologies.",
-    icon: AcademicCapIcon
+    initials: "RG"
   },
   {
     name: "Krystian Laskowski",
     role: "Expert in cloud hosted systems, large volumes of data, sensitive data, cloud processing",
     expertise: "Cloud Technology",
     description: "Cloud architecture expert specializing in healthcare data security and scalability.",
-    icon: GlobeAltIcon
+    initials: "KL"
   }
 ]
 
@@ -352,14 +352,16 @@ export default function Team() {
                         transition={{ duration: 0.3 }}
                         className="relative inline-block"
                       >
-                        <div className="w-28 h-28 bg-gradient-to-br from-purple-500 via-pink-500 to-blue-500 rounded-2xl mx-auto mb-4 flex items-center justify-center shadow-lg relative overflow-hidden">
-                          <span className="text-white text-2xl font-bold z-10">
-                            {member.name.split(' ').map(n => n[0]).join('')}
-                          </span>
-                          <motion.div 
-                            animate={{ rotate: 360 }}
-                            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                            className="absolute inset-0 bg-gradient-to-br from-purple-400 via-pink-400 to-blue-400 opacity-30"
+                        <div className="w-28 h-28 rounded-2xl mx-auto mb-4 flex items-center justify-center shadow-lg relative overflow-hidden bg-gray-100 dark:bg-gray-800">
+                          <img 
+                            src={member.image} 
+                            alt={member.name}
+                            className="w-full h-full object-cover"
+                            onError={(e) => {
+                              // Fallback to initials if image fails to load
+                              e.target.onerror = null;
+                              e.target.src = `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='112' height='112' viewBox='0 0 100 100'><rect width='100%' height='100%' fill='%239C92AC'/><text x='50%' y='55%' font-size='40' text-anchor='middle' fill='white' font-family='Arial, sans-serif' font-weight='bold'>${member.name.split(' ').map(n => n[0]).join('')}</text></svg>`;
+                            }}
                           />
                         </div>
                         {/* Status Indicator */}
@@ -501,7 +503,9 @@ export default function Team() {
                         transition={{ duration: 0.5 }}
                         className="w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl mx-auto mb-4 flex items-center justify-center shadow-lg"
                       >
-                        <advisor.icon className="w-10 h-10 text-white" />
+                        <span className="text-white text-2xl font-bold">
+                          {advisor.initials}
+                        </span>
                       </motion.div>
                       <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
                         {advisor.name}

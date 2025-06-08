@@ -249,7 +249,7 @@ export default function Technology() {
               
               <h1 className="text-5xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-6xl lg:text-7xl leading-tight mb-8">
                 <span className="block">Revolutionary</span>
-                <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent block">
+                <span className="bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent block">
                   AI Technology
                 </span>
                 <span className="block">for Healthcare</span>
@@ -272,7 +272,7 @@ export default function Technology() {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="flex flex-col sm:flex-row items-center justify-center gap-4"
               >
-                <button className="group relative inline-flex items-center px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <button className="group relative inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-400 to-purple-600 text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
                   <span className="relative flex items-center">
                     <Play className="mr-2 h-5 w-5" />
                     Watch Demo
