@@ -7,7 +7,8 @@ import {
   Users,
   Heart,
   TrendingUp,
-  Globe
+  Globe,
+  Activity
 } from 'lucide-react'
 
 const problems = [
@@ -34,7 +35,7 @@ const problems = [
   {
     icon: Clock,
     title: "~20 minutes",
-    description: "Current manual diagnosis takes 20 minutes per sample, with subjective and non-reproducible results.",
+    description: "Current manual diagnosis takes ~20 minutes per sample, with subjective and non-reproducible results.",
     stat: "20min",
     color: "from-yellow-500 to-orange-500",
     bgColor: "from-yellow-50 to-orange-50 dark:from-yellow-900/10 dark:to-orange-900/10",
@@ -224,17 +225,18 @@ export default function ProblemStatement() {
                     {/* Gradient Background */}
                     <div className={`absolute inset-0 ${stat.gradient} opacity-50 -z-10`} />
                     <div className="relative z-10">
-                      <div className="bg-white/70 dark:bg-gray-700/70 w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                        <stat.icon className="w-6 h-6 text-gray-800 dark:text-gray-200" />
-                      </div>
-                      <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300 bg-clip-text text-transparent mb-2">
-                        {stat.value}
-                      </div>
-                      <div className="font-semibold text-gray-900 dark:text-white mb-2">
-                        {stat.label}
-                      </div>
-                      <div className="text-sm text-gray-700 dark:text-gray-300">
-                        {stat.description}
+                      <div className="flex items-center gap-3">
+                        <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-teal-500 rounded-2xl flex items-center justify-center">
+                          <Activity className="w-6 h-6 text-white" />
+                        </div>
+                        <div>
+                          <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+                            Time-Consuming Manual Diagnosis
+                          </h3>
+                          <p className="text-gray-600 dark:text-gray-400 text-sm">
+                            Inefficiencies in traditional diagnosis
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>

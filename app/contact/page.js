@@ -17,7 +17,8 @@ import {
   UserGroupIcon,
   LightBulbIcon,
   CurrencyDollarIcon,
-  PencilSquareIcon
+  PencilSquareIcon,
+  GlobeAltIcon
 } from '@heroicons/react/24/outline'
 
 const contactInfo = [
@@ -617,6 +618,133 @@ export default function Contact() {
                 </div>
               </div>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Digipath Network Section */}
+      <section className="section-padding bg-white dark:bg-gray-900">
+        <div className="container-custom">
+          <div className="max-w-4xl mx-auto text-center mb-16">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-blue-600/10 to-purple-600/10 backdrop-blur-sm border border-blue-200/30 dark:border-blue-700/30 text-blue-800 dark:text-blue-200 text-sm font-semibold shadow-lg mb-6"
+            >
+              <LightBulbIcon className="w-5 h-5 mr-2" />
+              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                Our Initiative
+              </span>
+            </motion.div>
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">
+              Digipath Network Started
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300">
+              We're excited to announce the launch of our Digipath Network, a revolutionary platform connecting healthcare providers with advanced AI-powered diagnostic tools. This initiative aims to bridge the gap in autoimmune disease detection by providing seamless access to our cutting-edge technology across different regions and healthcare settings.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {[
+              {
+                title: "Connected Healthcare",
+                description: "Seamless integration with healthcare providers worldwide",
+                icon: "🌐"
+              },
+              {
+                title: "Real-time Analysis",
+                description: "Instant access to AI-powered diagnostic results",
+                icon: "⚡"
+              },
+              {
+                title: "Collaborative Platform",
+                description: "Connect with specialists and share insights",
+                icon: "🤝"
+              }
+            ].map((item, index) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-shadow duration-300"
+              >
+                <div className="text-4xl mb-4">{item.icon}</div>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{item.title}</h3>
+                <p className="text-gray-600 dark:text-gray-300">{item.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* International Collaboration Section */}
+      <section className="section-padding bg-gray-50 dark:bg-gray-800/50">
+        <div className="container-custom">
+          <div className="max-w-4xl mx-auto text-center mb-16">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-green-600/10 to-teal-600/10 backdrop-blur-sm border border-green-200/30 dark:border-green-700/30 text-green-800 dark:text-green-200 text-sm font-semibold shadow-lg mb-6"
+            >
+              <GlobeAltIcon className="w-5 h-5 mr-2" />
+              <span className="bg-gradient-to-r from-green-600 to-teal-600 bg-clip-text text-transparent">
+                Global Partnerships
+              </span>
+            </motion.div>
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">
+              International Collaboration
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300 mb-12">
+              We're proud to partner with leading healthcare institutions and research centers worldwide to advance autoimmune disease detection and treatment through innovative AI solutions.
+            </p>
+            <div className="grid md:grid-cols-2 gap-8 items-center max-w-5xl mx-auto">
+              <motion.div 
+                className="space-y-6 text-left"
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+              >
+                {[
+                  "Collaborative research with top medical institutions",
+                  "Knowledge exchange programs with global experts",
+                  "Joint clinical trials and validation studies",
+                  "Cross-border telemedicine initiatives"
+                ].map((item, index) => (
+                  <div key={index} className="flex items-start">
+                    <CheckCircleIcon className="w-6 h-6 text-green-500 mt-1 mr-3 flex-shrink-0" />
+                    <span className="text-gray-700 dark:text-gray-300">{item}</span>
+                  </div>
+                ))}
+              </motion.div>
+              <motion.div 
+                className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-100 dark:border-gray-700"
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Our Global Reach</h3>
+                <div className="space-y-4">
+                  {[
+                    { country: "India", partners: "15+ leading hospitals" },
+                    { country: "Singapore", partners: "3 research institutions" },
+                    { country: "United States", partners: "2 academic medical centers" },
+                    { country: "European Union", partners: "4 healthcare networks" }
+                  ].map((item, index) => (
+                    <div key={index} className="flex justify-between items-center pb-3 border-b border-gray-100 dark:border-gray-700 last:border-0 last:pb-0">
+                      <span className="font-medium text-gray-900 dark:text-white">{item.country}</span>
+                      <span className="text-sm text-gray-600 dark:text-gray-400">{item.partners}</span>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            </div>
           </div>
         </div>
       </section>

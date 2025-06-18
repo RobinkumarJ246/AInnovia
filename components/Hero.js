@@ -6,94 +6,56 @@ import { ArrowRightIcon, PlayIcon, CheckCircleIcon, SparklesIcon, BeakerIcon, Ma
 
 export default function Hero() {
   return (
-    <div className="mt-4 relative min-h-screen overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-teal-900">
-      {/* Background Pattern */}
-      <div 
-        className="absolute inset-0 opacity-10"
-        style={{
-          backgroundImage: "url(" + "data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M30 10c11.046 0 20 8.954 20 20s-8.954 20-20 20S10 41.046 10 30 18.954 10 30 10m0-2C17.85 8 8 17.85 8 30s9.85 22 22 22 22-9.85 22-22S42.15 8 30 8z'/%3E%3C/g%3E%3C/svg%3E" + ")"
-        }}
-      ></div>
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 via-green-900/30 to-teal-900/30 z-0" />
-      {/* Enhanced Background Effects */}
+    <div className="mt-4 relative min-h-screen overflow-hidden bg-gray-900">
+      {/* Cell Background Image */}
+      <div className="absolute inset-0 z-0">
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-30"
+          style={{
+            backgroundImage: "url('/images/cell-bg.jpg')",
+            backgroundBlendMode: 'overlay'
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-900/90 via-blue-900/80 to-teal-900/90" />
+      </div>
+
+      {/* Subtle Animated Elements - Optimized for Performance */}
       <div className="absolute inset-0">
-        {/* Primary gradient orbs */}
         <motion.div 
           animate={{ 
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.5, 0.3]
+            scale: [1, 1.1, 1],
+            opacity: [0.2, 0.3, 0.2]
           }}
           transition={{ 
-            duration: 8, 
+            duration: 10,
             repeat: Infinity, 
             ease: "easeInOut" 
           }}
-          className="absolute top-20 left-1/4 w-96 h-96 bg-gradient-to-br from-blue-400/30 to-cyan-400/30 dark:from-blue-600/20 dark:to-cyan-600/20 rounded-full blur-3xl"
+          className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 rounded-full blur-2xl"
         />
         <motion.div 
           animate={{ 
-            scale: [1.2, 1, 1.2],
-            opacity: [0.4, 0.6, 0.4]
+            scale: [1.05, 1, 1.05],
+            opacity: [0.2, 0.3, 0.2]
           }}
           transition={{ 
-            duration: 10, 
+            duration: 12,
             repeat: Infinity, 
             ease: "easeInOut",
             delay: 2
           }}
-          className="absolute bottom-20 right-1/4 w-80 h-80 bg-gradient-to-br from-purple-400/30 to-pink-400/30 dark:from-purple-600/20 dark:to-pink-600/20 rounded-full blur-3xl"
-        />
-        <motion.div 
-          animate={{ 
-            scale: [1, 1.3, 1],
-            opacity: [0.2, 0.4, 0.2]
-          }}
-          transition={{ 
-            duration: 12, 
-            repeat: Infinity, 
-            ease: "easeInOut",
-            delay: 4
-          }}
-          className="absolute top-1/2 right-10 w-64 h-64 bg-gradient-to-br from-indigo-400/30 to-purple-400/30 dark:from-indigo-600/20 dark:to-purple-600/20 rounded-full blur-3xl"
+          className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-full blur-2xl"
         />
       </div>
 
-      {/* Animated Grid Pattern */}
+      {/* Subtle Grid Overlay */}
       <div className="absolute inset-0 opacity-5">
-        <motion.div 
-          animate={{ opacity: [0.05, 0.1, 0.05] }}
-          transition={{ duration: 6, repeat: Infinity }}
+        <div 
           className="absolute inset-0" 
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3e%3cg fill='none' fill-rule='evenodd'%3e%3cg fill='%23000000' fill-opacity='0.1'%3e%3cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e")`
+            backgroundImage: `url("data:image/svg+xml,%3csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3e%3cg fill='none' fill-rule='evenodd'%3e%3cg fill='%23ffffff' fill-opacity='0.1'%3e%3cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e")`
           }} 
         />
-      </div>
-
-      {/* Floating Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(6)].map((_, i) => (
-          <motion.div
-            key={i}
-            animate={{
-              y: [-20, -60, -20],
-              x: [-10, 10, -10],
-              rotate: [0, 360, 0]
-            }}
-            transition={{
-              duration: 10 + i * 2,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: i * 1.5
-            }}
-            className={`absolute w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full opacity-20`}
-            style={{
-              left: `${20 + (i * 12)}%`,
-              top: `${30 + (i * 8)}%`
-            }}
-          />
-        ))}
       </div>
       
       <div className="relative min-h-screen flex items-center">

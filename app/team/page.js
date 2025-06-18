@@ -55,50 +55,26 @@ const teamMembers = [
     email: "sudipta@ainnovia.ai"
   },
   {
-    name: "Dr. Dilip Prasad",
-    role: "Technology Lead",
-    education: "PhD",
-    expertise: "Scalable, interpretable AI solutions",
-    description: "Specializes in developing scalable AI solutions. As a PI secured multimillion in competitive research funding.",
-    image: "/dilip.jpg",
-    specialties: ["AI Architecture", "Machine Learning", "Cloud Computing"],
-    achievements: "$5M+ in research funding secured",
+    name: "Dr. Saikat Barik",
+    role: "Dr. Barik",
+    education: "MD",
+    expertise: "Rheumatologist and clinical immunologist",
+    description: "Expert in immunology and autoimmune diseases with extensive clinical research experience.",
+    image: "/saikat.jpg",
+    specialties: ["Immunology", "Autoimmune Diseases", "Clinical Research"],
+    achievements: "Built partnerships with several healthcare institutions",
     linkedin: "#",
-    email: "dilip@ainnovia.ai"
-  },
-  {
-    name: "Samiran Mukherjee",
-    role: "Business Development",
-    education: "MBA",
-    expertise: "Relationship management, Business Plans and Policy Management",
-    description: "Expert in relationship management, business plans and policy management.",
-    image: "/samiran.jpg",
-    specialties: ["Strategic Planning", "Partnership Development", "Market Analysis"],
-    achievements: "Built partnerships with 50+ healthcare institutions",
-    linkedin: "#",
-    email: "samiran@ainnovia.ai"
-  },
-  {
-    name: "Dr. Devanathan Raghunathan",
-    role: "Finance & Strategy",
-    education: "PhD, MBA",
-    expertise: "Corporate Finance, HealthTech, MedTech",
-    description: "A Biophysicist with immense experience in Corporate Finance, HealthTech, MedTech. Currently with the team to help overall business and raise funding.",
-    image: "/devanathan.jpg",
-    specialties: ["Corporate Finance", "HealthTech Strategy", "Investment Planning"],
-    achievements: "Raised $50M+ for healthcare startups",
-    linkedin: "#",
-    email: "devanathan@ainnovia.ai"
+    email: "saikat@ainnovia.ai"
   }
 ]
 
 const advisors = [
   {
-    name: "Pratik Bose",
-    role: "Pioneer in Venture Capital & Private Equity",
-    expertise: "Investment Strategy",
-    description: "20+ years in VC/PE with focus on healthcare and technology investments.",
-    initials: "PB"
+    name: "Dr. Devanathan Raghunathan",
+    role: "Finance & Strategy",
+    expertise: "Corporate Finance, HealthTech, MedTech",
+    description: "A Biophysicist with experience in Corporate Finance, HealthTech, MedTech.",
+    initials: "DR"
   },
   {
     name: "Dr. Shounak Ghosh",
@@ -108,32 +84,12 @@ const advisors = [
     initials: "SG"
   },
   {
-    name: "Prof. Mohan Kankanhalli",
-    role: "Deputy Executive Chairman, AI Singapore",
-    expertise: "AI Leadership",
-    description: "Renowned AI researcher and leader in Singapore's national AI strategy.",
-    initials: "MK"
-  },
-  {
-    name: "Dr. Abhinay Mishra",
-    role: "Expert in immunotherapy and design of biomedical devices",
-    expertise: "Biomedical Engineering",
-    description: "Pioneer in biomedical device development and immunotherapy research.",
-    initials: "AM"
-  },
-  {
-    name: "Rosalima Gupta",
-    role: "Physicist and Patent Attorney",
-    expertise: "Intellectual Property",
-    description: "Expert in IP strategy for healthcare and AI technologies.",
-    initials: "RG"
-  },
-  {
-    name: "Krystian Laskowski",
-    role: "Expert in cloud hosted systems, large volumes of data, sensitive data, cloud processing",
-    expertise: "Cloud Technology",
-    description: "Cloud architecture expert specializing in healthcare data security and scalability.",
-    initials: "KL"
+    name: "Dr. Goutam Dalapati",
+    role: "Expert in healthcare and technology",
+    expertise: "Healthcare Technology",
+    description: "Professional with expertise in healthcare technology and innovation.",
+    initials: "GD",
+    linkedin: "https://www.linkedin.com/in/goutam-kumar-dalapati-4416a3170/"
   }
 ]
 
@@ -253,8 +209,8 @@ export default function Team() {
                 
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                   {[
-                    { value: "6", label: "Core Team Members", description: "Expert professionals" },
-                    { value: "6", label: "Advisory Board", description: "Industry leaders" },
+                    { value: "4", label: "Core Team Members", description: "Expert professionals" },
+                    { value: "3", label: "Advisory Board", description: "Industry leaders" },
                     { value: "80+", label: "Years Combined Experience", description: "Decades of expertise" },
                     { value: "3", label: "Countries Represented", description: "Global perspective" }
                   ].map((stat, index) => (

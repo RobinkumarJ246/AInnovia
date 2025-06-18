@@ -9,7 +9,11 @@ export const metadata = {
   description: 'Accurate, efficient and affordable detection of autoimmune diseases using AI technology. Democratizing access to autoimmune disease diagnosis globally.',
   keywords: 'AI, autoimmune diseases, medical diagnosis, healthcare, ANA-IFA test, medical technology',
   authors: [{ name: 'AInnovia' }],
-  viewport: 'width=device-width, initial-scale=1',
+}
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
 }
 
 export default function RootLayout({ children }) {

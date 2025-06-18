@@ -19,19 +19,19 @@ import {
 const marketStats = [
   {
     title: "Global Market Size",
-    value: "$4.7B",
-    growth: "$7.2B by 2027",
-    cagr: "8.9% CAGR",
-    description: "Autoimmune disease diagnostics market showing unprecedented growth globally",
+    value: "$9.7B",
+    growth: "by 2030",
+    cagr: "7.5% CAGR",
+    description: "Autoimmune disease diagnostics market showing strong growth potential",
     icon: Globe,
     gradient: "from-blue-500 to-cyan-500"
   },
   {
-    title: "Asia-Pacific Market",
-    value: "$2.2B",
-    growth: "12.4% CAGR",
-    cagr: "Fastest Growing",
-    description: "Asia-Pacific region leading market growth with highest demand and adoption",
+    title: "Key Market Segments",
+    value: "$3.2B, $2.8B, $2.4B, $1.4B",
+    growth: "8.6% CAGR",
+    cagr: "Leading Segments",
+    description: "Major market segments showing consistent growth across regions",
     icon: TrendingUp,
     gradient: "from-green-500 to-emerald-500"
   },
@@ -49,32 +49,32 @@ const marketStats = [
 const regions = [
   { 
     name: "Asia-Pacific", 
-    growth: "12.4%", 
-    value: "$2.2B",
+    growth: "7.5%", 
+    value: "$3.2B",
     color: "from-blue-500 to-blue-600",
     bgColor: "from-blue-50 to-blue-100",
     darkBgColor: "from-blue-900/20 to-blue-800/20"
   },
   { 
     name: "North America", 
-    growth: "8.6%", 
-    value: "$1.8B",
+    growth: "7.2%", 
+    value: "$2.8B",
     color: "from-green-500 to-green-600",
     bgColor: "from-green-50 to-green-100",
     darkBgColor: "from-green-900/20 to-green-800/20"
   },
   { 
     name: "Europe", 
-    growth: "7.8%", 
-    value: "$1.4B",
+    growth: "7.0%", 
+    value: "$2.4B",
     color: "from-purple-500 to-purple-600",
     bgColor: "from-purple-50 to-purple-100",
     darkBgColor: "from-purple-900/20 to-purple-800/20"
   },
   { 
     name: "Rest of World", 
-    growth: "9.2%", 
-    value: "$0.8B",
+    growth: "8.6%", 
+    value: "$1.4B",
     color: "from-orange-500 to-orange-600",
     bgColor: "from-orange-50 to-orange-100",
     darkBgColor: "from-orange-900/20 to-orange-800/20"
@@ -284,57 +284,77 @@ export default function MarketOpportunity() {
 
           {/* Market Drivers */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
-            className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-3xl shadow-xl p-8 border border-white/20 dark:border-gray-700/30"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true, margin: "-100px" }}
+            className="relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-3xl shadow-xl p-8 border border-white/20 dark:border-gray-700/30 overflow-hidden"
           >
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-cyan-500 rounded-2xl flex items-center justify-center">
-                <TrendingUp className="w-6 h-6 text-white" />
+            {/* Decorative Elements */}
+            <div className="absolute top-0 right-0 w-32 h-32 -mr-16 -mt-16 bg-gradient-to-br from-green-500/10 to-cyan-500/10 rounded-full blur-3xl" />
+            
+            <div className="relative z-10">
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-14 h-14 flex-shrink-0 bg-gradient-to-br from-green-500 to-cyan-500 rounded-2xl flex items-center justify-center shadow-lg">
+                  <TrendingUp className="w-7 h-7 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
+                    Market Drivers
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300 text-sm mt-1">
+                    Key factors accelerating market growth and adoption
+                  </p>
+                </div>
               </div>
-              <div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
-                  Market Drivers
-                </h3>
-                <p className="text-gray-600 dark:text-gray-400 text-sm">
-                  Key factors driving growth
-                </p>
-              </div>
-            </div>
 
-            <div className="space-y-6">
-              {marketDrivers.map((driver, index) => {
-                const IconComponent = driver.icon
-                return (
-                  <motion.div 
-                    key={driver.title}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="group flex items-start gap-4 p-4 rounded-2xl hover:bg-gray-50/50 dark:hover:bg-gray-700/30 transition-colors duration-300"
-                  >
-                    <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                      <IconComponent className="w-5 h-5 text-white" />
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex items-center gap-2 mb-2">
-                        <h4 className="font-semibold text-gray-900 dark:text-white">
-                          {driver.title}
-                        </h4>
-                        <span className="text-xs bg-gradient-to-r from-green-500 to-emerald-500 text-white px-2 py-1 rounded-full font-bold">
-                          {driver.stat}
-                        </span>
+              <div className="space-y-5">
+                {marketDrivers.map((driver, index) => {
+                  const gradientColors = [
+                    "from-blue-500/10 to-blue-600/10",
+                    "from-purple-500/10 to-purple-600/10",
+                    "from-teal-500/10 to-teal-600/10",
+                    "from-amber-500/10 to-amber-600/10"
+                  ][index % 4];
+                  
+                  const iconColors = [
+                    "text-blue-500",
+                    "text-purple-500",
+                    "text-teal-500",
+                    "text-amber-500"
+                  ][index % 4];
+                  
+                  return (
+                    <motion.div 
+                      key={driver.title}
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: index * 0.1 }}
+                      viewport={{ once: true, margin: "-30px" }}
+                      className={`group relative p-4 rounded-2xl bg-gradient-to-br ${gradientColors} hover:shadow-md transition-all duration-300 border border-white/30 dark:border-gray-700/30`}
+                    >
+                      <div className="flex items-start gap-4">
+                        <div className={`flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center bg-white/90 dark:bg-gray-800/90 shadow-sm ${iconColors} group-hover:scale-110 transition-transform duration-300`}>
+                          <driver.icon className="w-6 h-6" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center justify-between gap-2">
+                            <h4 className="font-bold text-gray-900 dark:text-white text-base md:text-lg">
+                              {driver.title}
+                            </h4>
+                            <span className="px-3 py-1 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-full text-xs font-semibold text-gray-700 dark:text-gray-300 whitespace-nowrap">
+                              {driver.stat}
+                            </span>
+                          </div>
+                          <p className="mt-1 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                            {driver.description}
+                          </p>
+                        </div>
                       </div>
-                      <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                        {driver.description}
-                      </p>
-                    </div>
-                  </motion.div>
-                )
-              })}
+                    </motion.div>
+                  );
+                })}
+              </div>
             </div>
           </motion.div>
         </div>

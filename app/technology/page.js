@@ -34,11 +34,11 @@ const techSpecs = [
     icon: Brain,
     color: "from-purple-600 to-pink-600",
     items: [
-      "Deep learning neural networks",
-      "Computer vision algorithms", 
-      "Pattern recognition systems",
-      "Automated feature extraction",
-      "Ensemble learning methods"
+      "Hybrid Fuzzy Algorithm (ONGOING)",
+      "Step-Function Normalization (ONGOING)", 
+      "14+ Canonical Pattern recognition",
+      "Relative Cellular I (ONGOING)",
+      "Automated feature extraction"
     ]
   },
   {
@@ -235,24 +235,17 @@ export default function Technology() {
               transition={{ duration: 0.8 }}
               className="mb-16"
             >
-              <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="inline-flex items-center gap-2 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-full px-6 py-3 mb-8 border border-gray-200/50 dark:border-gray-700/50"
-              >
-                <Sparkles className="w-5 h-5 text-purple-600" />
-                <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">
-                  Cutting-edge AI Technology
-                </span>
-              </motion.div>
-              
+              <div className="flex justify-center mb-8">
+                <div className="w-24 h-24 sm:w-32 sm:h-32 bg-gradient-to-r from-blue-400 to-purple-600 rounded-2xl flex items-center justify-center shadow-2xl transform rotate-6 hover:rotate-0 transition-transform duration-500">
+                  <Brain className="h-12 w-12 sm:h-16 sm:w-16 text-white" />
+                </div>
+              </div>
               <h1 className="text-5xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-6xl lg:text-7xl leading-tight mb-8">
-                <span className="block">Revolutionary</span>
+                <span className="block">Cutting-Edge</span>
                 <span className="bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent block">
                   AI Technology
                 </span>
-                <span className="block">for Healthcare</span>
+                <span className="block">for Autoimmune Diagnostics</span>
               </h1>
               
               <motion.p
@@ -289,8 +282,41 @@ export default function Technology() {
         </div>
       </section>
 
+      {/* Technology Demo Video */}
+      <section className="relative py-16 bg-white dark:bg-gray-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">
+              See Our Technology in Action
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              Watch how our AI analyzes patterns and provides diagnostic insights in real-time.
+            </p>
+          </motion.div>
+          
+          <div className="relative aspect-video bg-gray-100 dark:bg-gray-800 rounded-2xl overflow-hidden shadow-2xl max-w-5xl mx-auto">
+            {/* Video Placeholder */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="text-center p-8">
+                <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                  <Play className="h-10 w-10 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">Technology Demonstration</h3>
+                <p className="text-gray-600 dark:text-gray-300">Video coming soon</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Technical Specifications */}
-      <section className="relative py-24">
+      <section className="relative py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

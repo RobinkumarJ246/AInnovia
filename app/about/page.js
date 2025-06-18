@@ -75,9 +75,11 @@ export default function About() {
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-6xl">
               About <span className="text-gradient">AInnovia</span>
             </h1>
-            <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              We are pioneering the future of autoimmune disease detection through artificial intelligence, 
-              making accurate diagnosis accessible to everyone, everywhere.
+            <p className="mt-6 text-xl font-semibold leading-8 text-gray-900 dark:text-white max-w-3xl mx-auto">
+              We are pioneering the future of autoimmune disease detection through AI
+            </p>
+            <p className="mt-4 text-lg leading-8 text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              Early, accurate diagnosis accessible to everyone, everywhere
             </p>
           </motion.div>
         </div>
