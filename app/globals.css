@@ -15,33 +15,51 @@ Dark Mode Cursor
 }
 */
 
-/* Simplified Scrollbar Styles */
+/* Enhanced Scrollbar Styles */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 12px;
+  height: 12px;
 }
 
+/* Light Theme */
+:root {
+  --scrollbar-track: rgba(0, 0, 0, 0.06);
+  --scrollbar-thumb: rgba(0, 0, 0, 0.3);
+  --scrollbar-thumb-hover: rgba(0, 0, 0, 0.4);
+}
+
+/* Dark Theme */
+.dark {
+  --scrollbar-track: rgba(255, 255, 255, 0.06);
+  --scrollbar-thumb: rgba(255, 255, 255, 0.3);
+  --scrollbar-thumb-hover: rgba(255, 255, 255, 0.5);
+}
+
+/* Track */
 ::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.05);
-  border-radius: 4px;
+  background: var(--scrollbar-track);
+  border-radius: 6px;
+  margin: 4px;
 }
 
+/* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
-  border: 2px solid transparent;
+  background: var(--scrollbar-thumb);
+  border-radius: 6px;
+  border: 3px solid transparent;
   background-clip: padding-box;
+  transition: background-color 0.2s ease-in-out;
 }
 
-/* Dark Mode Scrollbar */
-@media (prefers-color-scheme: dark) {
-  ::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.05);
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.2);
-  }
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
 }
 
 /* Smooth gradient transitions */

@@ -250,27 +250,24 @@ export default function Solution() {
                   viewport={{ once: true }}
                   className="bg-white/50 dark:bg-gray-700/50 rounded-2xl p-6 backdrop-blur-sm border border-white/20 dark:border-gray-600/20"
                 >
-                  <div className="flex items-center justify-center mb-4">
-                    <div className={`bg-gradient-to-br ${metric.color} p-3 rounded-xl text-white`}>
+                  <div className="flex flex-col items-center mb-4">
+                    <div className={`bg-gradient-to-br ${metric.color} p-3 rounded-xl text-white mb-3`}>
                       <metric.icon className="w-6 h-6" />
                     </div>
+                    <span className={`text-sm font-bold bg-gradient-to-r ${metric.color} bg-clip-text text-transparent text-center`}>
+                      {metric.improvement}
+                    </span>
                   </div>
                   
                   <div className="space-y-3">
                     <div className="flex justify-between items-center p-3 bg-red-50 dark:bg-red-900/20 rounded-lg">
-                      <span className="text-sm text-gray-600 dark:text-gray-400">Traditional</span>
-                      <span className="font-semibold text-red-600 dark:text-red-400">{metric.traditional}</span>
+                      <span className="text-xs text-gray-600 dark:text-gray-400">Expert pathologist only</span>
+                      <span className="font-semibold text-red-600 dark:text-red-400 text-sm">{metric.traditional}</span>
                     </div>
                     
                     <div className="flex justify-between items-center p-3 bg-green-50 dark:bg-green-900/20 rounded-lg">
-                      <span className="text-sm text-gray-600 dark:text-gray-400">AInnovia</span>
-                      <span className="font-semibold text-green-600 dark:text-green-400">{metric.aiPowered}</span>
-                    </div>
-                    
-                    <div className="text-center">
-                      <span className={`text-sm font-bold bg-gradient-to-r ${metric.color} bg-clip-text text-transparent`}>
-                        {metric.improvement}
-                      </span>
+                      <span className="text-xs text-gray-600 dark:text-gray-400">Expert pathologist + AInnovia</span>
+                      <span className="font-semibold text-green-600 dark:text-green-400 text-sm">{metric.aiPowered}</span>
                     </div>
                   </div>
                 </motion.div>

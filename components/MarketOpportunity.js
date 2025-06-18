@@ -19,19 +19,19 @@ import {
 const marketStats = [
   {
     title: "Global Market Size",
-    value: "$9.7B",
-    growth: "by 2030",
-    cagr: "7.5% CAGR",
+    value: "$5.6B",
+    growth: "$9.7B by 2030",
+    cagr: "8.9% CAGR",
     description: "Autoimmune disease diagnostics market showing strong growth potential",
     icon: Globe,
     gradient: "from-blue-500 to-cyan-500"
   },
   {
-    title: "Key Market Segments",
-    value: "$3.2B, $2.8B, $2.4B, $1.4B",
-    growth: "8.6% CAGR",
-    cagr: "Leading Segments",
-    description: "Major market segments showing consistent growth across regions",
+    title: "Asia-Pacific Market",
+    value: "$1.6B",
+    growth: "$3.2 by 2030",
+    cagr: "Fastest growing",
+    description: "Asis-Pacific region leading in market with high demand and early adoption",
     icon: TrendingUp,
     gradient: "from-green-500 to-emerald-500"
   },
@@ -49,32 +49,32 @@ const marketStats = [
 const regions = [
   { 
     name: "Asia-Pacific", 
-    growth: "7.5%", 
-    value: "$3.2B",
+    growth: "12.4%", 
+    value: "$3.2B (2030)",
     color: "from-blue-500 to-blue-600",
     bgColor: "from-blue-50 to-blue-100",
     darkBgColor: "from-blue-900/20 to-blue-800/20"
   },
   { 
     name: "North America", 
-    growth: "7.2%", 
-    value: "$2.8B",
+    growth: "7.5%", 
+    value: "$2.8B (2030)",
     color: "from-green-500 to-green-600",
     bgColor: "from-green-50 to-green-100",
     darkBgColor: "from-green-900/20 to-green-800/20"
   },
   { 
     name: "Europe", 
-    growth: "7.0%", 
-    value: "$2.4B",
+    growth: "8.6%", 
+    value: "$2.4B (2030)",
     color: "from-purple-500 to-purple-600",
     bgColor: "from-purple-50 to-purple-100",
     darkBgColor: "from-purple-900/20 to-purple-800/20"
   },
   { 
     name: "Rest of World", 
-    growth: "8.6%", 
-    value: "$1.4B",
+    growth: "9.2%", 
+    value: "$1.4B (2030)",
     color: "from-orange-500 to-orange-600",
     bgColor: "from-orange-50 to-orange-100",
     darkBgColor: "from-orange-900/20 to-orange-800/20"

@@ -27,6 +27,7 @@ import {
 } from 'lucide-react'
 import Footer from '../../components/Footer'
 import Navbar from '../../components/Navbar'
+import Link from 'next/link'
 
 const techSpecs = [
   {
@@ -174,7 +175,7 @@ const features = [
   },
   {
     icon: Shield,
-    title: "Regulatory Compliant", 
+    title: "Regulatory Compliant (Ongoing)", 
     description: "Software as Medical Device (SaMD) designed to meet CDSCO and international standards.",
     color: "from-green-500 to-emerald-500"
   },
@@ -271,11 +272,10 @@ export default function Technology() {
                     Watch Demo
                   </span>
                 </button>
-                
-                <button className="group inline-flex items-center px-8 py-4 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-gray-900 dark:text-white font-semibold rounded-2xl border border-gray-200/50 dark:border-gray-700/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-white dark:hover:bg-gray-800">
+                <Link href="/contact" className="group inline-flex items-center px-8 py-4 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-gray-900 dark:text-white font-semibold rounded-2xl border border-gray-200/50 dark:border-gray-700/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-white dark:hover:bg-gray-800">
                   <Phone className="mr-3 h-5 w-5 text-blue-600" />
                   Contact us
-                </button>
+                </Link>
               </motion.div>
             </motion.div>
           </div>
@@ -619,10 +619,12 @@ export default function Technology() {
                     whileTap={{ scale: 0.95 }}
                     className="group bg-white text-blue-600 hover:bg-gray-100 font-bold py-4 px-8 rounded-2xl transition-all duration-300 shadow-lg hover:shadow-xl"
                   >
+                    <Link href="/contact">
                     <span className="flex items-center justify-center">
                       Request Demo
                       <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                     </span>
+                    </Link>
                   </motion.button>
                   
                   <motion.button 
@@ -630,10 +632,12 @@ export default function Technology() {
                     whileTap={{ scale: 0.95 }}
                     className="group border-2 border-white text-white hover:bg-white hover:text-blue-600 font-bold py-4 px-8 rounded-2xl transition-all duration-300"
                   >
+                    <Link href="/solutions">
                     <span className="flex items-center justify-center">
                       <Layers className="mr-2 h-5 w-5" />
                       View Solutions
                     </span>
+                    </Link>
                   </motion.button>
                 </div>
               </div>

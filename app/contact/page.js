@@ -20,6 +20,7 @@ import {
   PencilSquareIcon,
   GlobeAltIcon
 } from '@heroicons/react/24/outline'
+import AIchat from '../../components/AIchat'
 
 const contactInfo = [
   {
@@ -153,6 +154,7 @@ export default function Contact() {
         <div className="space-y-2" />
       </div>
       <Navbar />
+      <AIchat position={{ bottom: 10, right: 20 }} />
       
       {/* Enhanced Hero Section */}
       <section className="relative min-h-[70vh] overflow-hidden bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-gray-900 dark:via-blue-900/20 dark:to-purple-900/20">
@@ -831,8 +833,8 @@ export default function Contact() {
             >
               {[
                 { icon: UserGroupIcon, text: "Trusted by Healthcare Leaders" },
-                { icon: CheckCircleIcon, text: "ISO 27001 Certified" },
-                { icon: SparklesIcon, text: "Award-Winning Technology" }
+                { icon: CheckCircleIcon, text: "Digipath Network Started" },
+                { icon: SparklesIcon, text: "International Collaboration" }
               ].map((item, index) => (
                 <motion.div 
                   key={item.text}

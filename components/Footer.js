@@ -38,7 +38,7 @@ export default function Footer() {
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8">
             <div>
-              <span className="text-3xl font-bold text-gradient">AInnovia</span>
+              <span className="text-3xl font-bold bg-gradient-to-r from-green-600 to-teal-600 bg-clip-text text-transparent">AInnovia</span>
               <p className="mt-4 text-sm leading-6 text-gray-300">
                 Democratizing access to AI-powered autoimmune disease detection. 
                 Accurate, efficient, and affordable healthcare solutions for everyone.
@@ -120,7 +120,7 @@ export default function Footer() {
         <div className="mt-16 border-t border-white/10 pt-8 sm:mt-20 lg:mt-24">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
             <p className="text-xs leading-5 text-gray-400">
-              &copy; 2024 AInnovia. All rights reserved. Early detection leads to healthy life.
+              &copy; 2025 AInnovia. All rights reserved. Early detection leads to healthy life.
             </p>
             <p className="mt-4 sm:mt-0 text-xs leading-5 text-gray-400">
               Made with ❤️ for better healthcare

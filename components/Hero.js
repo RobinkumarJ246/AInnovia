@@ -3,59 +3,89 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { ArrowRightIcon, PlayIcon, CheckCircleIcon, SparklesIcon, BeakerIcon, MagnifyingGlassIcon, ChartBarIcon } from '@heroicons/react/24/outline'
+import { Brain,Lock } from 'lucide-react'
 
 export default function Hero() {
   return (
-    <div className="mt-4 relative min-h-screen overflow-hidden bg-gray-900">
-      {/* Cell Background Image */}
-      <div className="absolute inset-0 z-0">
-        <div 
-          className="absolute inset-0 bg-cover bg-center opacity-30"
-          style={{
-            backgroundImage: "url('/images/cell-bg.jpg')",
-            backgroundBlendMode: 'overlay'
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-900/90 via-blue-900/80 to-teal-900/90" />
-      </div>
-
-      {/* Subtle Animated Elements - Optimized for Performance */}
+    <div className="mt-4 relative min-h-screen overflow-hidden bg-gradient-to-br from-blue-50 via-green-50 to-teal-50 dark:from-gray-900 dark:via-blue-900/20 dark:to-purple-900/20">
+      {/* Enhanced Background Effects */}
       <div className="absolute inset-0">
+        {/* Primary gradient orbs */}
         <motion.div 
           animate={{ 
-            scale: [1, 1.1, 1],
-            opacity: [0.2, 0.3, 0.2]
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.5, 0.3]
           }}
           transition={{ 
-            duration: 10,
+            duration: 8, 
             repeat: Infinity, 
             ease: "easeInOut" 
           }}
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 rounded-full blur-2xl"
+          className="absolute top-20 left-1/4 w-96 h-96 bg-gradient-to-br from-blue-400/30 to-cyan-400/30 dark:from-blue-600/20 dark:to-cyan-600/20 rounded-full blur-3xl"
         />
         <motion.div 
           animate={{ 
-            scale: [1.05, 1, 1.05],
-            opacity: [0.2, 0.3, 0.2]
+            scale: [1.2, 1, 1.2],
+            opacity: [0.4, 0.6, 0.4]
           }}
           transition={{ 
-            duration: 12,
+            duration: 10, 
             repeat: Infinity, 
             ease: "easeInOut",
             delay: 2
           }}
-          className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-full blur-2xl"
+          className="absolute bottom-20 right-1/4 w-80 h-80 bg-gradient-to-br from-purple-400/30 to-pink-400/30 dark:from-purple-600/20 dark:to-pink-600/20 rounded-full blur-3xl"
+        />
+        <motion.div 
+          animate={{ 
+            scale: [1, 1.3, 1],
+            opacity: [0.2, 0.4, 0.2]
+          }}
+          transition={{ 
+            duration: 12, 
+            repeat: Infinity, 
+            ease: "easeInOut",
+            delay: 4
+          }}
+          className="absolute top-1/2 right-10 w-64 h-64 bg-gradient-to-br from-indigo-400/30 to-purple-400/30 dark:from-indigo-600/20 dark:to-purple-600/20 rounded-full blur-3xl"
         />
       </div>
 
-      {/* Subtle Grid Overlay */}
+      {/* Animated Grid Pattern */}
       <div className="absolute inset-0 opacity-5">
-        <div 
+        <motion.div 
+          animate={{ opacity: [0.05, 0.1, 0.05] }}
+          transition={{ duration: 6, repeat: Infinity }}
           className="absolute inset-0" 
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3e%3cg fill='none' fill-rule='evenodd'%3e%3cg fill='%23ffffff' fill-opacity='0.1'%3e%3cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e")`
+            backgroundImage: `url("data:image/svg+xml,%3csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3e%3cg fill='none' fill-rule='evenodd'%3e%3cg fill='%23000000' fill-opacity='0.1'%3e%3cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e")`
           }} 
         />
+      </div>
+
+      {/* Floating Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(6)].map((_, i) => (
+          <motion.div
+            key={i}
+            animate={{
+              y: [-20, -60, -20],
+              x: [-10, 10, -10],
+              rotate: [0, 360, 0]
+            }}
+            transition={{
+              duration: 10 + i * 2,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: i * 1.5
+            }}
+            className={`absolute w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full opacity-20`}
+            style={{
+              left: `${20 + (i * 12)}%`,
+              top: `${30 + (i * 8)}%`
+            }}
+          />
+        ))}
       </div>
       
       <div className="relative min-h-screen flex items-center">
@@ -69,9 +99,9 @@ export default function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.1 }}
               >
-                <h1 className="text-5xl font-bold tracking-tight text-white sm:text-6xl lg:text-5xl xl:text-7xl leading-tight">
-                  <span className="block">Transforming</span>
-                  <span className="bg-gradient-to-r from-green-400 to-teal-400 bg-clip-text text-transparent block">
+                <h1 className="text-5xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-6xl lg:text-5xl xl:text-7xl leading-tight">
+                  <span className="block">Transform</span>
+                  <span className="bg-gradient-to-r from-green-600 to-teal-600 bg-clip-text text-transparent block">
                     Autoimmune
                   </span>
                   <span className="block">Diagnostics</span>
@@ -84,23 +114,17 @@ export default function Hero() {
                   className="mt-8 text-xl leading-8 text-gray-600 dark:text-gray-300 max-w-2xl"
                 >
                   Revolutionize healthcare with AI-powered autoimmune disease detection. 
-                  <div className="mt-6 p-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
-                    <div className="flex items-center gap-4 flex-wrap">
-                      <div className="flex items-center gap-2 bg-gradient-to-r from-green-600/20 to-teal-600/20 px-4 py-2 rounded-lg">
-                        <span className="text-2xl font-bold text-white">
-                          ~20m
-                        </span>
-                        <span className="text-white/80">analysis time</span>
-                      </div>
-                      <div className="flex items-center gap-2 bg-gradient-to-r from-blue-600/20 to-cyan-600/20 px-4 py-2 rounded-lg">
-                        <span className="text-2xl font-bold text-white">
-                          95%
-                        </span>
-                        <span className="text-white/80">accuracy</span>
-                      </div>
-                    </div>
-                    <p className="mt-3 text-white/80">Making advanced diagnostics accessible globally with AI-powered precision.</p>
-                  </div>
+                  <span className="inline-flex items-center gap-4">
+                    <span className="ml-3 text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-teal-600 text-2xl font-bold">
+                      30s
+                    </span>
+                    <span className="text-gray-600 dark:text-gray-400">analysis time</span>
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-teal-600 text-2xl font-bold">
+                      95%
+                    </span>
+                    <span className="text-gray-600 dark:text-gray-400">accuracy</span>
+                  </span>
+                  <span className="ml-0">making advanced diagnostics accessible globally.</span>
                 </motion.p>
               </motion.div>
               
@@ -133,6 +157,14 @@ export default function Hero() {
                 className="mt-12 flex items-center gap-6 text-sm text-gray-600 dark:text-gray-400"
               >
                 <div className="flex items-center gap-2">
+                  <Lock className="w-5 h-5 text-green-500" />
+                  <span>Secure</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Brain className="w-5 h-5 text-green-500" />
+                  <span>AI-powered</span>
+                </div>
+                <div className="flex items-center gap-2">
                   <CheckCircleIcon className="w-5 h-5 text-green-500" />
                   <span>Cloud-based SaaS</span>
                 </div>
@@ -146,22 +178,39 @@ export default function Hero() {
                 className="mt-16 grid grid-cols-3 gap-8"
               >
                 {[
-                  { value: "~20m", label: "Analysis Time", color: "from-blue-500 to-cyan-500" },
-                  { value: "95%", label: "Accuracy Rate", color: "from-green-500 to-emerald-500" },
-                  { value: "$9.7B", label: "Market Size (2030)", color: "from-purple-500 to-pink-500" }
+                  { 
+                    value: "30s", 
+                    label: "Analysis Time", 
+                    color: "from-blue-600 to-cyan-600",
+                    bg: "bg-gradient-to-br from-blue-500/10 to-cyan-500/10 hover:from-blue-500/20 hover:to-cyan-500/20"
+                  },
+                  { 
+                    value: "95%", 
+                    label: "Accuracy Rate", 
+                    color: "from-green-600 to-emerald-600",
+                    bg: "bg-gradient-to-br from-green-500/10 to-emerald-500/10 hover:from-green-500/20 hover:to-emerald-500/20"
+                  },
+                  { 
+                    value: "$7.2B", 
+                    label: "Market Size", 
+                    color: "from-purple-600 to-pink-600",
+                    bg: "bg-gradient-to-br from-purple-500/10 to-pink-500/10 hover:from-purple-500/20 hover:to-pink-500/20"
+                  }
                 ].map((stat, index) => (
                   <div key={stat.label} className="text-center group">
                     <motion.div 
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
                       transition={{ duration: 0.6, delay: 0.7 + index * 0.1 }}
-                      className={`text-3xl sm:text-4xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300`}
+                      className={`p-4 rounded-xl ${stat.bg} border border-gray-200/30 dark:border-gray-700/30 transition-all duration-300`}
                     >
-                      {stat.value}
+                      <div className={`text-3xl sm:text-4xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300`}>
+                        {stat.value}
+                      </div>
+                      <div className="text-sm text-gray-600 dark:text-gray-400 font-medium">
+                        {stat.label}
+                      </div>
                     </motion.div>
-                    <div className="text-sm text-gray-600 dark:text-gray-400 font-medium">
-                      {stat.label}
-                    </div>
                   </div>
                 ))}
               </motion.div>
@@ -203,10 +252,10 @@ export default function Hero() {
                         </div>
                         <div>
                           <h3 className="text-xl font-bold text-gray-900 dark:text-white">
-                            Automated Investigation of Autoimmune Diseases
+                          Automated Investigation of Autoimmune Diseases
                           </h3>
                           <p className="text-sm text-gray-600 dark:text-gray-400">
-                            Using AI 
+                            Performed using AI
                           </p>
                         </div>
                       </div>
@@ -217,7 +266,7 @@ export default function Hero() {
                           className="w-2 h-2 bg-green-400 rounded-full"
                         />
                         <span className="text-sm font-medium text-green-600 dark:text-green-400">
-                          Live Analysis
+                          Analysis
                         </span>
                       </div>
                     </div>
@@ -231,43 +280,51 @@ export default function Hero() {
                       
                       {/* Simulated Cell Patterns */}
                       <div className="relative h-32 flex items-center justify-center">
-                        <motion.div 
-                          animate={{ opacity: [0.6, 1, 0.6] }}
-                          transition={{ duration: 2, repeat: Infinity }}
-                          className="absolute inset-0 rounded-2xl"
-                        >
-                          {/* Cell nuclei simulation */}
-                          {[...Array(12)].map((_, i) => (
-                            <motion.div
-                              key={i}
-                              animate={{
-                                scale: [0.8, 1.2, 0.8],
-                                opacity: [0.4, 0.8, 0.4]
-                              }}
-                              transition={{
-                                duration: 3 + (i * 0.2),
-                                repeat: Infinity,
-                                delay: i * 0.3
-                              }}
-                              className="absolute w-4 h-4 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-full blur-sm"
-                              style={{
-                                left: `${15 + (i % 4) * 20}%`,
-                                top: `${20 + Math.floor(i / 4) * 25}%`,
-                                boxShadow: '0 0 8px rgba(34, 211, 238, 0.6)'
-                              }}
-                            />
-                          ))}
-                        </motion.div>
+                        {/* Cell substrate background with increased opacity */}
+                        <div 
+                          className="absolute inset-0 rounded-2xl bg-cover bg-center mix-blend-overlay opacity-90"
+                          style={{
+                            backgroundImage: 'url("/images/cell-substrate-placeholder.jpg")',
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center'
+                          }}
+                        />
+                        <div className="absolute inset-0 rounded-2xl" />
+                        
+                        {/* Cell nuclei simulation */}
+                        {[...Array(12)].map((_, i) => (
+                          <motion.div
+                            key={i}
+                            animate={{
+                              scale: [0.8, 1.2, 0.8],
+                              opacity: [0.4, 0.8, 0.4]
+                            }}
+                            transition={{
+                              duration: 3 + (i * 0.2),
+                              repeat: Infinity,
+                              delay: i * 0.3
+                            }}
+                            className="absolute w-4 h-4 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-full blur-sm"
+                            style={{
+                              left: `${15 + (i % 4) * 20}%`,
+                              top: `${20 + Math.floor(i / 4) * 25}%`,
+                              boxShadow: '0 0 12px rgba(34, 211, 238, 0.8)'
+                            }}
+                          />
+                        ))}
                         
                         <div className="relative z-10 text-center">
                           <motion.div 
                             animate={{ scale: [1, 1.05, 1] }}
                             transition={{ duration: 2, repeat: Infinity }}
-                            className="text-cyan-100 font-bold text-lg mb-1"
+                            className="font-bold text-lg mb-1 text-white dark:text-cyan-100 drop-shadow-md"
+                            style={{
+                              textShadow: '0 0 8px rgba(255, 255, 255, 0.7) dark:0 0 8px rgba(165, 243, 252, 0.7)'
+                            }}
                           >
                             Analyzing Patterns...
                           </motion.div>
-                          <div className="text-gray-100 text-sm">
+                          <div className="text-sm font-medium text-white/90 dark:text-cyan-100/90 drop-shadow">
                             HEp-2 Cell Substrate
                           </div>
                         </div>
@@ -381,17 +438,19 @@ export default function Hero() {
                             Autoimmune Markers Detected
                           </span>
                         </div>
-                        <div className="text-sm text-green-700 dark:text-green-400 space-y-1">
+                        <div className="text-sm text-green-700 dark:text-green-400 space-y-2">
                           <p className="font-medium">Pattern: Homogeneous Nuclear</p>
                           <p>Titer: 1:320 (Significant)</p>
-                          <motion.p 
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
+                          <motion.div 
+                            initial={{ opacity: 0, y: 5 }}
+                            animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 2.5 }}
-                            className="text-xs bg-green-100 dark:bg-green-900/30 px-3 py-1 rounded-full inline-block mt-2"
+                            className="mt-4 pt-2 border-green-200/50 dark:border-green-800/50"
                           >
-                            Recommend: Further clinical correlation
-                          </motion.p>
+                            <div className="text-xs font-medium bg-green-100/90 dark:bg-green-900/80 px-4 py-2 rounded-full inline-flex items-center border border-green-200 dark:border-green-800 shadow-sm">
+                              <span className="font-semibold mr-1">Recommend:</span> Further clinical correlation
+                            </div>
+                          </motion.div>
                         </div>
                       </div>
                     </motion.div>

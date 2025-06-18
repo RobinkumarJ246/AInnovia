@@ -44,9 +44,9 @@ export default function BlogComingSoon() {
       {/* Hero Section */}
       <section className="relative flex-1 flex items-center justify-center bg-gradient-to-br from-purple-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 -left-10 w-72 h-72 bg-green-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob dark:bg-purple-800/30 dark:mix-blend-screen"></div>
-          <div className="absolute top-1/2 -right-10 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000 dark:bg-blue-800/30 dark:mix-blend-screen"></div>
-          <div className="absolute -bottom-20 left-1/2 w-72 h-72 bg-teal-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000 dark:bg-pink-800/30 dark:mix-blend-screen"></div>
+          <div className="absolute top-1/4 -left-10 w-72 h-72 bg-green-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-[blob_7s_infinite] dark:bg-purple-800/30 dark:mix-blend-screen"></div>
+          <div className="absolute top-1/2 -right-10 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-[blob_7s_infinite] [animation-delay:2000ms] dark:bg-blue-800/30 dark:mix-blend-screen"></div>
+          <div className="absolute -bottom-20 left-1/2 w-72 h-72 bg-teal-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-[blob_7s_infinite] [animation-delay:4000ms] dark:bg-pink-800/30 dark:mix-blend-screen"></div>
         </div>
 
         <div className="relative z-10 container-custom px-4 py-24 text-center">
@@ -68,7 +68,7 @@ export default function BlogComingSoon() {
             Our <span className="bg-gradient-to-r from-green-600 to-teal-600 bg-clip-text text-transparent">Blog</span> Is Coming Soon
           </motion.h1>
           
-          <motion.p 
+          <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -76,7 +76,7 @@ export default function BlogComingSoon() {
           >
             We're working hard to bring you insightful articles about AI in healthcare, 
             medical technology, and the future of diagnostics. Stay tuned for updates!
-          </motion.p>
+          </motion.div>
           
           <div className="max-w-md mx-auto">
             <motion.form 
@@ -110,14 +110,14 @@ export default function BlogComingSoon() {
               </div>
             </motion.form>
             
-            <motion.p 
+            <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               className="mt-4 text-sm text-gray-500 dark:text-gray-400"
             >
               Get notified when we launch. No spam, we promise!
-            </motion.p>
+            </motion.div>
           </div>
           
           <motion.div 
