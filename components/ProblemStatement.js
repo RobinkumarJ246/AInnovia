@@ -10,6 +10,7 @@ import {
   Globe,
   Activity
 } from 'lucide-react'
+import React from 'react'
 
 const problems = [
   {
@@ -56,24 +57,30 @@ const problems = [
 const covidStats = [
   {
     icon: TrendingUp,
-    value: "300%",
+    value: "45%",
     label: "Increase Post-COVID",
     description: "Significant rise in autoimmune cases",
-    gradient: "bg-gradient-to-r from-red-500/20 to-orange-600/20"
+    color: "from-orange-500 to-amber-500",
+    bgColor: "from-orange-50 to-amber-50 dark:from-orange-900/10 dark:to-amber-900/10",
+    iconBg: "bg-orange-100 dark:bg-orange-900/20"
   },
   {
     icon: Users,
     value: "75%",
     label: "Women Affected",
     description: "Higher prevalence in females",
-    gradient: "bg-gradient-to-r from-pink-500/20 to-rose-600/20"
+    color: "from-pink-500 to-rose-500",
+    bgColor: "from-pink-50 to-rose-50 dark:from-pink-900/10 dark:to-rose-900/10",
+    iconBg: "bg-pink-100 dark:bg-pink-900/20"
   },
   {
     icon: Globe,
     value: "Asia",
     label: "Highest Growth Rate",
     description: "Leading region in new cases",
-    gradient: "bg-gradient-to-r from-blue-500/20 to-cyan-600/20"
+    color: "from-blue-500 to-cyan-500",
+    bgColor: "from-blue-50 to-cyan-50 dark:from-blue-900/10 dark:to-cyan-900/10",
+    iconBg: "bg-blue-100 dark:bg-blue-900/20"
   }
 ]
 
@@ -225,18 +232,19 @@ export default function ProblemStatement() {
                     {/* Gradient Background */}
                     <div className={`absolute inset-0 ${stat.gradient} opacity-50 -z-10`} />
                     <div className="relative z-10">
-                      <div className="flex items-center gap-3">
-                        <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-teal-500 rounded-2xl flex items-center justify-center">
-                          <Activity className="w-6 h-6 text-white" />
+                      <div className="flex flex-col items-center text-center">
+                        <div className={`w-16 h-16 ${stat.iconBg} rounded-2xl flex items-center justify-center mb-4`}>
+                          <stat.icon className={`w-8 h-8 ${stat.color.split(' ')[0].replace('from-', 'text-')}`} />
                         </div>
-                        <div>
-                          <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
-                            Time-Consuming Manual Diagnosis
-                          </h3>
-                          <p className="text-gray-600 dark:text-gray-400 text-sm">
-                            Inefficiencies in traditional diagnosis
-                          </p>
-                        </div>
+                        <h3 className={`text-4xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-2`}>
+                          {stat.value}
+                        </h3>
+                        <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">
+                          {stat.label}
+                        </h4>
+                        <p className="text-gray-600 dark:text-gray-400 text-sm">
+                          {stat.description}
+                        </p>
                       </div>
                     </div>
                   </div>

@@ -87,10 +87,11 @@ export default function Navbar() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-8 h-16" aria-label="Global">
         <div className="flex-shrink-0 flex items-center">
           <Link href="/" className="block h-16 w-auto -mb-1">
+          
             <img 
               src="/logo.svg" 
               alt="AInnovia Logo" 
-              className="h-full w-auto"
+              className="h-full w-auto scale-110"
             />
           </Link>
         </div>
