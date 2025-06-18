@@ -18,7 +18,8 @@ const problems = [
     stat: "10%",
     color: "from-red-500 to-pink-600",
     bgColor: "from-red-50 to-pink-50 dark:from-red-900/10 dark:to-pink-900/10",
-    iconBg: "bg-red-100 dark:bg-red-900/20"
+    iconBg: "bg-red-100 dark:bg-red-900/20",
+    gradient: "bg-gradient-to-r from-red-500/20 to-pink-600/20"
   },
   {
     icon: AlertTriangle,
@@ -27,12 +28,13 @@ const problems = [
     stat: "80+",
     color: "from-orange-500 to-amber-600",
     bgColor: "from-orange-50 to-amber-50 dark:from-orange-900/10 dark:to-amber-900/10",
-    iconBg: "bg-orange-100 dark:bg-orange-900/20"
+    iconBg: "bg-orange-100 dark:bg-orange-900/20",
+    gradient: "bg-gradient-to-r from-orange-500/20 to-amber-600/20"
   },
   {
     icon: Clock,
-    title: "Time-Consuming Diagnosis",
-    description: "Current manual diagnosis takes 10-20 minutes per sample, with subjective and non-reproducible results.",
+    title: "~20 minutes",
+    description: "Current manual diagnosis takes 20 minutes per sample, with subjective and non-reproducible results.",
     stat: "20min",
     color: "from-yellow-500 to-orange-500",
     bgColor: "from-yellow-50 to-orange-50 dark:from-yellow-900/10 dark:to-orange-900/10",
@@ -45,7 +47,8 @@ const problems = [
     stat: "Critical",
     color: "from-purple-500 to-indigo-600",
     bgColor: "from-purple-50 to-indigo-50 dark:from-purple-900/10 dark:to-indigo-900/10",
-    iconBg: "bg-purple-100 dark:bg-purple-900/20"
+    iconBg: "bg-purple-100 dark:bg-purple-900/20",
+    gradient: "bg-gradient-to-r from-purple-500/20 to-indigo-600/20"
   }
 ]
 
@@ -54,19 +57,22 @@ const covidStats = [
     icon: TrendingUp,
     value: "300%",
     label: "Increase Post-COVID",
-    description: "Significant rise in autoimmune cases"
+    description: "Significant rise in autoimmune cases",
+    gradient: "bg-gradient-to-r from-red-500/20 to-orange-600/20"
   },
   {
     icon: Users,
     value: "75%",
     label: "Women Affected",
-    description: "Higher prevalence in females"
+    description: "Higher prevalence in females",
+    gradient: "bg-gradient-to-r from-pink-500/20 to-rose-600/20"
   },
   {
     icon: Globe,
     value: "Asia",
     label: "Highest Growth Rate",
-    description: "Leading region in new cases"
+    description: "Leading region in new cases",
+    gradient: "bg-gradient-to-r from-blue-500/20 to-cyan-600/20"
   }
 ]
 
@@ -138,7 +144,9 @@ export default function ProblemStatement() {
               }}
               className={`relative group bg-gradient-to-br ${problem.bgColor} backdrop-blur-sm rounded-3xl p-8 border border-white/20 dark:border-gray-700/30 shadow-lg hover:shadow-2xl transition-all duration-300`}
             >
-              {/* Gradient Border Effect */}
+              {/* Gradient Background */}
+              <div className={`absolute inset-0 ${problem.gradient} rounded-3xl opacity-50 -z-10`} />
+              {/* Hover Effect */}
               <div className={`absolute inset-0 bg-gradient-to-r ${problem.color} rounded-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-300 -z-10`} />
               
               <div className="flex items-start justify-between mb-6">
@@ -212,18 +220,22 @@ export default function ProblemStatement() {
                   viewport={{ once: true }}
                   className="text-center group"
                 >
-                  <div className="bg-white/50 dark:bg-gray-800/50 rounded-2xl p-6 backdrop-blur-sm border border-white/20 dark:border-gray-700/20 group-hover:bg-white/70 dark:group-hover:bg-gray-800/70 transition-all duration-300">
-                    <div className="bg-gradient-to-br from-red-100 to-orange-100 dark:from-red-900/20 dark:to-orange-900/20 w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                      <stat.icon className="w-6 h-6 text-red-600 dark:text-red-400" />
-                    </div>
-                    <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent mb-2">
-                      {stat.value}
-                    </div>
-                    <div className="font-semibold text-gray-900 dark:text-white mb-2">
-                      {stat.label}
-                    </div>
-                    <div className="text-sm text-gray-600 dark:text-gray-400">
-                      {stat.description}
+                  <div className="relative overflow-hidden bg-white/50 dark:bg-gray-800/50 rounded-2xl p-6 backdrop-blur-sm border border-white/20 dark:border-gray-700/20 group-hover:bg-white/70 dark:group-hover:bg-gray-800/70 transition-all duration-300">
+                    {/* Gradient Background */}
+                    <div className={`absolute inset-0 ${stat.gradient} opacity-50 -z-10`} />
+                    <div className="relative z-10">
+                      <div className="bg-white/70 dark:bg-gray-700/70 w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <stat.icon className="w-6 h-6 text-gray-800 dark:text-gray-200" />
+                      </div>
+                      <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300 bg-clip-text text-transparent mb-2">
+                        {stat.value}
+                      </div>
+                      <div className="font-semibold text-gray-900 dark:text-white mb-2">
+                        {stat.label}
+                      </div>
+                      <div className="text-sm text-gray-700 dark:text-gray-300">
+                        {stat.description}
+                      </div>
                     </div>
                   </div>
                 </motion.div>

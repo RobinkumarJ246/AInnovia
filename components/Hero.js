@@ -6,7 +6,16 @@ import { ArrowRightIcon, PlayIcon, CheckCircleIcon, SparklesIcon, BeakerIcon, Ma
 
 export default function Hero() {
   return (
-    <div className="mt-4 relative min-h-screen overflow-hidden bg-gradient-to-br from-blue-50 via-green-50 to-teal-50 dark:from-gray-900 dark:via-blue-900/20 dark:to-purple-900/20">
+    <div className="mt-4 relative min-h-screen overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-teal-900">
+      {/* Background Pattern */}
+      <div 
+        className="absolute inset-0 opacity-10"
+        style={{
+          backgroundImage: "url(" + "data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M30 10c11.046 0 20 8.954 20 20s-8.954 20-20 20S10 41.046 10 30 18.954 10 30 10m0-2C17.85 8 8 17.85 8 30s9.85 22 22 22 22-9.85 22-22S42.15 8 30 8z'/%3E%3C/g%3E%3C/svg%3E" + ")"
+        }}
+      ></div>
+      {/* Gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 via-green-900/30 to-teal-900/30 z-0" />
       {/* Enhanced Background Effects */}
       <div className="absolute inset-0">
         {/* Primary gradient orbs */}
@@ -98,9 +107,9 @@ export default function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.1 }}
               >
-                <h1 className="text-5xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-6xl lg:text-5xl xl:text-7xl leading-tight">
-                  <span className="block">Transform</span>
-                  <span className="bg-gradient-to-r from-green-600 to-teal-600 bg-clip-text text-transparent block">
+                <h1 className="text-5xl font-bold tracking-tight text-white sm:text-6xl lg:text-5xl xl:text-7xl leading-tight">
+                  <span className="block">Transforming</span>
+                  <span className="bg-gradient-to-r from-green-400 to-teal-400 bg-clip-text text-transparent block">
                     Autoimmune
                   </span>
                   <span className="block">Diagnostics</span>
@@ -113,17 +122,23 @@ export default function Hero() {
                   className="mt-8 text-xl leading-8 text-gray-600 dark:text-gray-300 max-w-2xl"
                 >
                   Revolutionize healthcare with AI-powered autoimmune disease detection. 
-                  <span className="inline-flex items-center gap-4">
-                    <span className="ml-3 text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-teal-600 text-2xl font-bold">
-                      30s
-                    </span>
-                    <span className="text-gray-600 dark:text-gray-400">analysis time</span>
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-teal-600 text-2xl font-bold">
-                      95%
-                    </span>
-                    <span className="text-gray-600 dark:text-gray-400">accuracy</span>
-                  </span>
-                  <span className="ml-0">making advanced diagnostics accessible globally.</span>
+                  <div className="mt-6 p-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
+                    <div className="flex items-center gap-4 flex-wrap">
+                      <div className="flex items-center gap-2 bg-gradient-to-r from-green-600/20 to-teal-600/20 px-4 py-2 rounded-lg">
+                        <span className="text-2xl font-bold text-white">
+                          ~20m
+                        </span>
+                        <span className="text-white/80">analysis time</span>
+                      </div>
+                      <div className="flex items-center gap-2 bg-gradient-to-r from-blue-600/20 to-cyan-600/20 px-4 py-2 rounded-lg">
+                        <span className="text-2xl font-bold text-white">
+                          95%
+                        </span>
+                        <span className="text-white/80">accuracy</span>
+                      </div>
+                    </div>
+                    <p className="mt-3 text-white/80">Making advanced diagnostics accessible globally with AI-powered precision.</p>
+                  </div>
                 </motion.p>
               </motion.div>
               
@@ -157,14 +172,6 @@ export default function Hero() {
               >
                 <div className="flex items-center gap-2">
                   <CheckCircleIcon className="w-5 h-5 text-green-500" />
-                  <span>FDA Compliant</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircleIcon className="w-5 h-5 text-green-500" />
-                  <span>HIPAA Secure</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircleIcon className="w-5 h-5 text-green-500" />
                   <span>Cloud-based SaaS</span>
                 </div>
               </motion.div>
@@ -177,9 +184,9 @@ export default function Hero() {
                 className="mt-16 grid grid-cols-3 gap-8"
               >
                 {[
-                  { value: "30s", label: "Analysis Time", color: "from-blue-600 to-cyan-600" },
-                  { value: "95%", label: "Accuracy Rate", color: "from-green-600 to-emerald-600" },
-                  { value: "$7.2B", label: "Market Size", color: "from-purple-600 to-pink-600" }
+                  { value: "~20m", label: "Analysis Time", color: "from-blue-500 to-cyan-500" },
+                  { value: "95%", label: "Accuracy Rate", color: "from-green-500 to-emerald-500" },
+                  { value: "$9.7B", label: "Market Size (2030)", color: "from-purple-500 to-pink-500" }
                 ].map((stat, index) => (
                   <div key={stat.label} className="text-center group">
                     <motion.div 
@@ -234,10 +241,10 @@ export default function Hero() {
                         </div>
                         <div>
                           <h3 className="text-xl font-bold text-gray-900 dark:text-white">
-                            AI Microscopy Analysis
+                            Automated Investigation of Autoimmune Diseases
                           </h3>
                           <p className="text-sm text-gray-600 dark:text-gray-400">
-                            ANA-IFA Pattern Recognition
+                            Using AI 
                           </p>
                         </div>
                       </div>
@@ -313,7 +320,7 @@ export default function Hero() {
                       >
                         <div className="flex items-center gap-2 text-xs text-cyan-400">
                           <MagnifyingGlassIcon className="w-4 h-4" />
-                          <span>400x Magnification</span>
+                          <span>40x Magnification</span>
                         </div>
                       </motion.div>
                     </div>
