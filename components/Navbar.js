@@ -34,7 +34,12 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [darkMode, setDarkMode] = useState(false)
   const [openDropdown, setOpenDropdown] = useState(null)
-  const dropdownRef = useRef(null)
+  const [mounted, setMounted] = useState(false);
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -50,18 +55,18 @@ export default function Navbar() {
   }, [])
 
   useEffect(() => {
+    if (!mounted) return;
     // Check for saved theme preference or default to light mode
-    const savedTheme = localStorage.getItem('theme')
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-    
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-      setDarkMode(true)
-      document.documentElement.classList.add('dark')
+      setDarkMode(true);
+      document.documentElement.classList.add('dark');
     } else {
-      setDarkMode(false)
-      document.documentElement.classList.remove('dark')
+      setDarkMode(false);
+      document.documentElement.classList.remove('dark');
     }
-  }, [])
+  }, [mounted]);
 
   const toggleDarkMode = () => {
     const newDarkMode = !darkMode
@@ -76,6 +81,7 @@ export default function Navbar() {
     }
   }
 
+  if (!mounted) return null;
   return (
     <header className="bg-gradient-to-r from-green-50/80 to-teal-50/80 dark:from-blue-900/80 dark:to-purple-900/80 backdrop-blur-xl border-b border-white/10 dark:border-gray-800/20 sticky top-0 z-50 shadow-lg shadow-blue-500/5 dark:shadow-purple-900/5">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-8 h-16" aria-label="Global">
