@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useState, useEffect, useRef } from 'react'
+import { createPortal } from 'react-dom'
 import { 
   AcademicCapIcon, 
   BeakerIcon, 
