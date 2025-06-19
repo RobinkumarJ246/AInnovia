@@ -6,25 +6,30 @@ import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
 import toast from 'react-hot-toast'
 import { 
-  EnvelopeIcon, 
-  PhoneIcon, 
-  MapPinIcon,
-  ClockIcon,
-  SparklesIcon,
-  CheckCircleIcon,
-  ArrowRightIcon,
-  ChatBubbleLeftRightIcon,
-  UserGroupIcon,
-  LightBulbIcon,
-  CurrencyDollarIcon,
-  PencilSquareIcon,
-  GlobeAltIcon
-} from '@heroicons/react/24/outline'
+  Mail, 
+  Phone, 
+  MapPin,
+  Clock,
+  Sparkles,
+  CheckCircle,
+  ArrowRight,
+  MessageSquare,
+  Users,
+  Lightbulb,
+  DollarSign,
+  Pencil,
+  Globe,
+  Network,
+  Zap,
+  Handshake,
+  Link2,
+  BarChart2
+} from 'lucide-react'
 import AIchat from '../../components/AIchat'
 
 const contactInfo = [
   {
-    icon: EnvelopeIcon,
+    icon: Mail,
     title: "Email",
     details: ["ainnovia24@gmail.com", "sanchita@ainnovia.com"],
     description: "Send us an email anytime",
@@ -34,7 +39,7 @@ const contactInfo = [
     labelBg: "bg-blue-100/70 dark:bg-blue-800/30"
   },
   {
-    icon: PhoneIcon,
+    icon: Phone,
     title: "Phone",
     details: ["+91-9836967368", "+65-83162535"],
     description: "Call us during business hours",
@@ -44,7 +49,7 @@ const contactInfo = [
     labelBg: "bg-green-100/70 dark:bg-green-800/30"
   },
   {
-    icon: ChatBubbleLeftRightIcon,
+    icon: MessageSquare,
     title: "AI Chatbot",
     details: ["Coming Soon", "24/7 Support"],
     description: "Instant responses powered by AI",
@@ -54,7 +59,7 @@ const contactInfo = [
     labelBg: "bg-orange-100/70 dark:bg-orange-800/30"
   },
   {
-    icon: MapPinIcon,
+    icon: MapPin,
     title: "Location",
     details: ["India", "Singapore"],
     description: "Our primary markets",
@@ -67,7 +72,7 @@ const contactInfo = [
 
 const inquiryTypes = [
   {
-    icon: UserGroupIcon,
+    icon: Users,
     title: "Healthcare Providers",
     description: "Interested in implementing our AI solution in your practice? Let's discuss how we can improve your diagnostic capabilities.",
     bgColor: "from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20",
@@ -75,7 +80,7 @@ const inquiryTypes = [
     iconColor: "text-blue-600 dark:text-blue-400"
   },
   {
-    icon: LightBulbIcon,
+    icon: Lightbulb,
     title: "Researchers",
     description: "Collaborate with us on advancing autoimmune disease research and AI-powered diagnostic technologies.",
     bgColor: "from-purple-50 to-indigo-50 dark:from-purple-900/20 dark:to-indigo-900/20",
@@ -83,7 +88,7 @@ const inquiryTypes = [
     iconColor: "text-purple-600 dark:text-purple-400"
   },
   {
-    icon: CurrencyDollarIcon,
+    icon: DollarSign,
     title: "Investors",
     description: "Join us in revolutionizing healthcare. Learn about our investment opportunities and growth potential.",
     bgColor: "from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20",
@@ -226,7 +231,7 @@ export default function Contact() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="inline-flex items-center gap-2 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm px-6 py-3 rounded-full border border-gray-200/50 dark:border-gray-700/50 mb-8"
               >
-                <ChatBubbleLeftRightIcon className="w-5 h-5 text-blue-600" />
+                <MessageSquare className="w-5 h-5 text-blue-600" />
                 <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
                   Let's Start a Conversation
                 </span>
@@ -423,7 +428,7 @@ export default function Contact() {
                   {/* Form Header */}
                   <div className="text-center mb-8">
                     <div className="inline-flex p-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl shadow-lg mb-4">
-                      <PencilSquareIcon className="w-6 h-6 text-white" />
+                      <Pencil className="w-6 h-6 text-white" />
                       <span className="ml-2 text-white font-bold">Quick form</span>
                     </div>
                     <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
@@ -599,7 +604,7 @@ export default function Contact() {
                         ) : (
                           <>
                             Send Message
-                            <ArrowRightIcon className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                            <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                           </>
                         )}
                       </span>
@@ -613,7 +618,7 @@ export default function Contact() {
                     className="mt-6 text-center"
                   >
                     <div className="flex items-center justify-center gap-2 text-sm text-gray-600 dark:text-gray-300">
-                      <CheckCircleIcon className="w-4 h-4 text-green-500 dark:text-green-400" />
+                      <CheckCircle className="w-4 h-4 text-green-500 dark:text-green-400" />
                       <span>We typically respond within 24-48 hours</span>
                     </div>
                   </motion.div>
@@ -624,61 +629,134 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Digipath Network Section */}
-      <section className="section-padding bg-white dark:bg-gray-900">
-        <div className="container-custom">
-          <div className="max-w-4xl mx-auto text-center mb-16">
+      {/* Enhanced Digipath Network Section */}
+      <section className="relative py-20 md:py-28 bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 overflow-hidden">
+        {/* Background elements */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-500/5 to-transparent dark:from-blue-400/5 dark:to-transparent mix-blend-multiply" />
+          <div className="absolute inset-0 bg-grid-white/5 [mask-image:linear-gradient(0deg,transparent,black_70%)]" />
+        </div>
+        
+        <div className="relative container-custom">
+          <div className="max-w-5xl mx-auto text-center mb-16">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-blue-600/10 to-purple-600/10 backdrop-blur-sm border border-blue-200/30 dark:border-blue-700/30 text-blue-800 dark:text-blue-200 text-sm font-semibold shadow-lg mb-6"
+              className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-blue-600/10 to-indigo-600/10 backdrop-blur-sm border border-blue-200/50 dark:border-blue-700/30 text-blue-800 dark:text-blue-200 text-sm font-semibold shadow-lg mb-6"
             >
-              <LightBulbIcon className="w-5 h-5 mr-2" />
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Our Initiative
+              <Lightbulb className="w-5 h-5 mr-2 text-blue-600 dark:text-blue-400" />
+              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                Revolutionizing Diagnostics
               </span>
             </motion.div>
-            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">
-              Digipath Network Started
-            </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300">
-              We're excited to announce the launch of our Digipath Network, a revolutionary platform connecting healthcare providers with advanced AI-powered diagnostic tools. This initiative aims to bridge the gap in autoimmune disease detection by providing seamless access to our cutting-edge technology across different regions and healthcare settings.
-            </p>
+            
+            <motion.h2 
+              className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 leading-tight"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+            >
+              Welcome to the <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Digipath Network</span>
+            </motion.h2>
+            
+            <motion.p 
+              className="text-xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              Transforming autoimmune disease detection through a connected ecosystem of AI-powered diagnostic tools. Our network bridges the gap between cutting-edge technology and healthcare providers, enabling faster, more accurate diagnoses worldwide.
+            </motion.p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {[
               {
-                title: "Connected Healthcare",
-                description: "Seamless integration with healthcare providers worldwide",
-                icon: "🌐"
+                title: "Seamless Integration",
+                description: "Effortlessly connect with our AI diagnostic platform from any healthcare setting, with full EMR/EHR compatibility.",
+                icon: <Network className="w-6 h-6" />,
+                gradient: "from-blue-500 to-cyan-500",
+                iconBg: "bg-blue-100 dark:bg-blue-900/30"
               },
               {
-                title: "Real-time Analysis",
-                description: "Instant access to AI-powered diagnostic results",
-                icon: "⚡"
+                title: "Real-time Insights",
+                description: "Get instant, AI-powered diagnostic results with comprehensive analysis and clinical decision support.",
+                icon: <Zap className="w-6 h-6" />,
+                gradient: "from-purple-500 to-pink-500",
+                iconBg: "bg-purple-100 dark:bg-purple-900/30"
               },
               {
-                title: "Collaborative Platform",
-                description: "Connect with specialists and share insights",
-                icon: "🤝"
+                title: "Collaborative Care",
+                description: "Connect with specialists worldwide, share insights, and collaborate on complex cases in real-time.",
+                icon: <Handshake className="w-6 h-6" />,
+                gradient: "from-indigo-500 to-blue-500",
+                iconBg: "bg-indigo-100 dark:bg-indigo-900/30"
               }
             ].map((item, index) => (
               <motion.div
                 key={item.title}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{ y: -10 }}
+                transition={{ 
+                  duration: 0.6, 
+                  delay: index * 0.1,
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 15
+                }}
                 viewport={{ once: true }}
-                className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-shadow duration-300"
+                className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-md rounded-2xl p-8 shadow-xl border border-gray-100/50 dark:border-gray-700/30 hover:shadow-2xl transition-all duration-500 overflow-hidden"
               >
-                <div className="text-4xl mb-4">{item.icon}</div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{item.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300">{item.description}</p>
+                {/* Decorative gradient accent */}
+                <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${item.gradient}`} />
+                
+                {/* Animated background element */}
+                <div className="absolute -right-10 -top-10 w-32 h-32 rounded-full bg-blue-500/10 dark:bg-blue-400/10 group-hover:scale-150 transition-transform duration-700" />
+                
+                <div className="relative z-10">
+                  <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl ${item.iconBg} text-blue-600 dark:text-blue-400 mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                    <div className={`p-3 rounded-xl bg-gradient-to-br ${item.gradient} text-white`}>
+                      {item.icon}
+                    </div>
+                  </div>
+                  
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:bg-clip-text group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-indigo-600 transition-all duration-300">
+                    {item.title}
+                  </h3>
+                  
+                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    {item.description}
+                  </p>
+                  
+                  <div className="mt-6 flex items-center text-sm font-medium text-blue-600 dark:text-blue-400 group-hover:translate-x-1 transition-all duration-300">
+                    Learn more
+                    <ArrowRight className="w-4 h-4 ml-1" />
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
+          
+          <motion.div 
+            className="mt-16 text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            <button className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+              Join the Digipath Network
+              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+            </button>
+            <p className="mt-4 text-sm text-gray-500 dark:text-gray-400">
+              Connect with our team to learn how to integrate with our platform
+            </p>
+          </motion.div>
         </div>
       </section>
 
@@ -693,7 +771,7 @@ export default function Contact() {
               viewport={{ once: true }}
               className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-green-600/10 to-teal-600/10 backdrop-blur-sm border border-green-200/30 dark:border-green-700/30 text-green-800 dark:text-green-200 text-sm font-semibold shadow-lg mb-6"
             >
-              <GlobeAltIcon className="w-5 h-5 mr-2" />
+              <Globe className="w-5 h-5 mr-2" />
               <span className="bg-gradient-to-r from-green-600 to-teal-600 bg-clip-text text-transparent">
                 Global Partnerships
               </span>
@@ -719,7 +797,7 @@ export default function Contact() {
                   "Cross-border telemedicine initiatives"
                 ].map((item, index) => (
                   <div key={index} className="flex items-start">
-                    <CheckCircleIcon className="w-6 h-6 text-green-500 mt-1 mr-3 flex-shrink-0" />
+                    <CheckCircle className="w-6 h-6 text-green-500 mt-1 mr-3 flex-shrink-0" />
                     <span className="text-gray-700 dark:text-gray-300">{item}</span>
                   </div>
                 ))}
@@ -791,7 +869,7 @@ export default function Contact() {
             className="text-center"
           >
             <div className="inline-flex p-4 bg-gradient-to-r from-white/20 to-white/10 backdrop-blur-sm rounded-3xl mb-8">
-              <SparklesIcon className="w-8 h-8 text-white" />
+              <Sparkles className="w-8 h-8 text-white" />
             </div>
             
             <h2 className="text-4xl font-bold text-white mb-6 sm:text-5xl">
@@ -810,7 +888,7 @@ export default function Contact() {
                 className="group inline-flex items-center px-8 py-4 bg-white text-purple-900 font-bold rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300"
               >
                 Schedule a Demo
-                <ArrowRightIcon className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
               </motion.button>
               
               <motion.button
@@ -819,7 +897,7 @@ export default function Contact() {
                 className="group inline-flex items-center px-8 py-4 border-2 border-white/30 text-white font-bold rounded-2xl hover:bg-white/10 backdrop-blur-sm transition-all duration-300"
               >
                 Download Brochure
-                <ArrowRightIcon className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
               </motion.button>
             </div>
 
@@ -832,9 +910,9 @@ export default function Contact() {
               className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-2xl mx-auto"
             >
               {[
-                { icon: UserGroupIcon, text: "Trusted by Healthcare Leaders" },
-                { icon: CheckCircleIcon, text: "Digipath Network Started" },
-                { icon: SparklesIcon, text: "International Collaboration" }
+                { icon: Users, text: "Trusted by Healthcare Leaders" },
+                { icon: CheckCircle, text: "Digipath Network Started" },
+                { icon: Sparkles, text: "International Collaboration" }
               ].map((item, index) => (
                 <motion.div 
                   key={item.text}
