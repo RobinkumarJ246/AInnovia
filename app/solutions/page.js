@@ -22,7 +22,7 @@ const solutions = [
     description: "Complete diagnostic service where we handle the entire process from sample collection to expert-signed reports.",
     features: [
       "Sample collection and processing",
-      "AI-powered image analysis",
+      "Machine Learning-powered image analysis",
       "Expert pathologist validation",
       "Detailed diagnostic reports",
       "24-48 hour turnaround time"
@@ -63,8 +63,8 @@ const workflow = [
   },
   {
     step: 3,
-    title: "AI Analysis",
-    description: "Our AI algorithms analyze cellular patterns and fluorescence intensity in 30 seconds",
+    title: "Machine Learning Analysis",
+    description: "Our Machine Learning algorithms analyze cellular patterns and fluorescence intensity in 30 seconds",
     icon: ChartBarIcon
   },
   {
@@ -258,7 +258,7 @@ export default function Solutions() {
               Key Benefits
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              Transform your diagnostic capabilities with our AI-powered solution that delivers 
+              Transform your diagnostic capabilities with our Machine Learning-powered solution that delivers 
               unprecedented speed, accuracy, and efficiency.
             </p>
           </motion.div>
@@ -304,7 +304,7 @@ export default function Solutions() {
               </h2>
               <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
                 Join the revolution in autoimmune disease detection. Contact us today to learn 
-                how our AI-powered solutions can benefit your practice or organization.
+                how our Machine Learning-powered solutions can benefit your practice or organization.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="/contact" className="btn-primary">

@@ -563,7 +563,7 @@ export default function Team() {
               Meet Our <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Leaders</span>
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Our leadership team brings together decades of experience in AI, medical research, 
+              Our leadership team brings together decades of experience in medical research, 
               and business development to drive innovation in healthcare diagnostics.
             </p>
           </motion.div>

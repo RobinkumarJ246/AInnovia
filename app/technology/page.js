@@ -99,7 +99,7 @@ const workflow = [
   },
   {
     step: 3,
-    title: "AI Analysis",
+    title: "Machine Learning Analysis",
     description: "Advanced deep learning models analyze cellular patterns and fluorescence intensity",
     technical: "CNN-based architecture, Multi-scale feature extraction, Pattern classification",
     icon: Cpu,
@@ -108,7 +108,7 @@ const workflow = [
   {
     step: 4,
     title: "Pattern Recognition",
-    description: "AI identifies specific ANA patterns associated with different autoimmune diseases",
+    description: "Machine Learning identifies specific ANA patterns associated with different autoimmune diseases",
     technical: "80+ disease pattern recognition, Confidence scoring, Borderline detection",
     icon: Target,
     color: "from-orange-500 to-red-500"
@@ -255,7 +255,7 @@ export default function Technology() {
                 transition={{ duration: 0.8, delay: 0.3 }}
                 className="text-xl leading-8 text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-12"
               >
-                Discover the cutting-edge AI technology that powers our revolutionary 
+                Discover the cutting-edge technology that powers our revolutionary 
                 autoimmune disease detection platform. Built on advanced machine learning 
                 and decades of medical expertise.
               </motion.p>
@@ -296,7 +296,7 @@ export default function Technology() {
               See Our Technology in Action
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Watch how our AI analyzes patterns and provides diagnostic insights in real-time.
+              Watch how our Machine Learning technology analyzes patterns and provides diagnostic insights in real-time.
             </p>
           </motion.div>
           
@@ -329,7 +329,7 @@ export default function Technology() {
               Technical Specifications
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Our platform combines state-of-the-art AI algorithms with medical imaging expertise 
+              Our platform combines state-of-the-art Machine Learning algorithms with medical imaging expertise 
               to deliver unparalleled diagnostic accuracy and speed.
             </p>
           </motion.div>
@@ -379,7 +379,7 @@ export default function Technology() {
         </div>
       </section>
 
-      {/* AI Processing Workflow */}
+      {/* Machine Learning Processing Workflow */}
       <section className="relative py-24 bg-white/30 dark:bg-gray-900/30 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -390,10 +390,10 @@ export default function Technology() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">
-              AI Processing Workflow
+              Machine Learning Processing Workflow
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Our sophisticated AI pipeline processes medical images through multiple stages 
+              Our sophisticated Machine Learning pipeline processes medical images through multiple stages 
               to ensure accurate and reliable diagnostic results.
             </p>
           </motion.div>
@@ -473,7 +473,7 @@ export default function Technology() {
               Performance Metrics
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Our AI technology delivers exceptional performance across all key metrics, 
+              Our Machine Learning technology delivers exceptional performance across all key metrics, 
               setting new standards for autoimmune disease detection.
             </p>
           </motion.div>
@@ -609,7 +609,7 @@ export default function Technology() {
                 </h2>
                 
                 <p className="text-xl mb-10 max-w-3xl mx-auto opacity-90 leading-relaxed">
-                  Ready to see our AI technology in action? Request a demo to experience 
+                  Ready to see our technology in action? Request a demo to experience 
                   how our platform can transform your diagnostic capabilities.
                 </p>
                 

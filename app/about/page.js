@@ -44,7 +44,7 @@ const milestones = [
   {
     year: "2024",
     title: "Product Prototype",
-    description: "Developed AI-powered prototype achieving 95% concordance with expert pathologists"
+    description: "Developed ML-powered prototype achieving 95% concordance with expert pathologists"
   },
   {
     year: "2024",
@@ -76,7 +76,7 @@ export default function About() {
               About <span className="text-gradient">AInnovia</span>
             </h1>
             <p className="mt-6 text-xl font-semibold leading-8 text-gray-900 dark:text-white max-w-3xl mx-auto">
-              We are pioneering the future of autoimmune disease detection through AI
+              We are pioneering the future of autoimmune disease detection through Machine Learning
             </p>
             <p className="mt-4 text-lg leading-8 text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
               Early, accurate diagnosis accessible to everyone, everywhere
@@ -99,7 +99,7 @@ export default function About() {
                 Our Mission
               </h2>
               <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
-                To democratize access to AI-powered autoimmune disease diagnostic tools across the globe, 
+                To democratize access to Machine Learning-powered autoimmune disease diagnostic tools across the globe, 
                 enabling early detection that saves lives and improves patient outcomes.
               </p>
               <p className="text-gray-600 dark:text-gray-300 mb-6">
@@ -111,7 +111,7 @@ export default function About() {
                 <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Our Vision</h3>
                 <p className="text-gray-700 dark:text-gray-300 text-sm">
                   A world where autoimmune diseases are detected early and accurately, 
-                  regardless of geographic location or economic status, through the power of AI.
+                  regardless of geographic location or economic status, through the power of Machine Learning.
                 </p>
               </div>
             </motion.div>
@@ -136,7 +136,7 @@ export default function About() {
                 <div className="text-center p-6 bg-gray-50 dark:bg-gray-800 rounded-xl">
                   <ShieldCheckIcon className="h-8 w-8 text-medical-blue mx-auto mb-3" />
                   <div className="text-2xl font-bold text-gray-900 dark:text-white">95%</div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">AI Accuracy</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">Model Accuracy</div>
                 </div>
                 <div className="text-center p-6 bg-gray-50 dark:bg-gray-800 rounded-xl">
                   <HeartIcon className="h-8 w-8 text-medical-blue mx-auto mb-3" />
