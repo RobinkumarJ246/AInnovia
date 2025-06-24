@@ -74,7 +74,7 @@ const inquiryTypes = [
   {
     icon: Users,
     title: "Healthcare Providers",
-    description: "Interested in implementing our AI solution in your practice? Let's discuss how we can improve your diagnostic capabilities.",
+    description: "Interested in implementing our Machine Learning solution in your practice? Let's discuss how we can improve your diagnostic capabilities.",
     bgColor: "from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20",
     borderColor: "border-blue-200/50 dark:border-blue-700/30",
     iconColor: "text-blue-600 dark:text-blue-400"
@@ -82,7 +82,7 @@ const inquiryTypes = [
   {
     icon: Lightbulb,
     title: "Researchers",
-    description: "Collaborate with us on advancing autoimmune disease research and AI-powered diagnostic technologies.",
+    description: "Collaborate with us on advancing autoimmune disease research and Machine Learning-powered diagnostic technologies.",
     bgColor: "from-purple-50 to-indigo-50 dark:from-purple-900/20 dark:to-indigo-900/20",
     borderColor: "border-purple-200/50 dark:border-purple-700/30",
     iconColor: "text-purple-600 dark:text-purple-400"
@@ -376,7 +376,7 @@ export default function Contact() {
               </h2>
               <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
                 Whether you're a healthcare provider, researcher, potential partner, 
-                or simply curious about our AI-driven solutions, we'd love to hear from you. 
+                or simply curious about our Machine Learning-driven solutions, we'd love to hear from you. 
                 Fill out the form and we'll get back to you within 24-48 hours.
               </p>
               
@@ -669,7 +669,7 @@ export default function Contact() {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              Transforming autoimmune disease detection through a connected ecosystem of AI-powered diagnostic tools. Our network bridges the gap between cutting-edge technology and healthcare providers, enabling faster, more accurate diagnoses worldwide.
+              Transforming autoimmune disease detection through a connected ecosystem of Machine Learning-powered diagnostic tools. Our network bridges the gap between cutting-edge technology and healthcare providers, enabling faster, more accurate diagnoses worldwide.
             </motion.p>
           </div>
           
@@ -677,14 +677,14 @@ export default function Contact() {
             {[
               {
                 title: "Seamless Integration",
-                description: "Effortlessly connect with our AI diagnostic platform from any healthcare setting, with full EMR/EHR compatibility.",
+                description: "Effortlessly connect with our Machine Learning diagnostic platform from any healthcare setting, with full EMR/EHR compatibility.",
                 icon: <Network className="w-6 h-6" />,
                 gradient: "from-blue-500 to-cyan-500",
                 iconBg: "bg-blue-100 dark:bg-blue-900/30"
               },
               {
                 title: "Real-time Insights",
-                description: "Get instant, AI-powered diagnostic results with comprehensive analysis and clinical decision support.",
+                description: "Get instant, Machine Learning-powered diagnostic results with comprehensive analysis and clinical decision support.",
                 icon: <Zap className="w-6 h-6" />,
                 gradient: "from-purple-500 to-pink-500",
                 iconBg: "bg-purple-100 dark:bg-purple-900/30"

@@ -40,7 +40,7 @@ export default function Footer() {
             <div>
               <span className="text-3xl font-bold bg-gradient-to-r from-green-600 to-teal-600 bg-clip-text text-transparent">AInnovia</span>
               <p className="mt-4 text-sm leading-6 text-gray-300">
-                Democratizing access to AI-powered autoimmune disease detection. 
+                Democratizing access to Machine Learning-powered autoimmune disease detection. 
                 Accurate, efficient, and affordable healthcare solutions for everyone.
               </p>
             </div>
@@ -123,7 +123,7 @@ export default function Footer() {
               &copy; 2025 AInnovia. All rights reserved. Early detection leads to healthy life.
             </p>
             <p className="mt-4 sm:mt-0 text-xs leading-5 text-gray-400">
-              Made with ❤️ for better healthcare
+              Made with ❤️ by innovatexcel
             </p>
           </div>
         </div>
