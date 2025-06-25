@@ -34,19 +34,6 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [darkMode, setDarkMode] = useState(false)
   const [openDropdown, setOpenDropdown] = useState(null)
-
-  // Toggle body scroll when dropdown is open
-  useEffect(() => {
-    if (openDropdown) {
-      document.body.classList.add('menu-open')
-    } else {
-      document.body.classList.remove('menu-open')
-    }
-    
-    return () => {
-      document.body.classList.remove('menu-open')
-    }
-  }, [openDropdown])
   const [mounted, setMounted] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -194,78 +181,69 @@ export default function Navbar() {
         </div>
       </nav>
       
-      {/* Mobile Navigation - Horizontal Scrollable */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/90 dark:bg-gray-900/90 backdrop-blur-lg border-t border-gray-200 dark:border-gray-800 shadow-lg">
-        {/* Click outside to close dropdown */}
-        {openDropdown && (
-          <div 
-            className="fixed inset-0 bg-black/20 z-30"
-            onClick={() => setOpenDropdown(null)}
-          />
-        )}
-        <div className="flex items-center justify-between px-4 py-2">
-          <div className="flex-1 overflow-x-auto hide-scrollbar">
-            <div className="flex space-x-1 py-2">
+      {/* Mobile Navigation */}
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 shadow-lg">
+        <div className="relative">
+          {/* Scroll indicator */}
+          <div className="absolute left-0 top-0 h-full w-6 bg-gradient-to-r from-white dark:from-gray-900 to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute right-0 top-0 h-full w-6 bg-gradient-to-l from-white dark:from-gray-900 to-transparent z-10 pointer-events-none"></div>
+          
+          {/* Scrollable navigation */}
+          <div className="overflow-x-auto py-3 px-4 hide-scrollbar">
+            <div className="flex space-x-2 min-w-max">
               {navigation.map((item) => (
-                <div key={item.name} className="relative flex-shrink-0">
+                <div key={item.name} className="flex-shrink-0">
                   {item.dropdown ? (
-                    <div className="relative">
-                      <button
-                        onClick={() => setOpenDropdown(openDropdown === item.name ? null : item.name)}
-                        className="flex items-center px-3 py-2 text-sm font-medium rounded-lg whitespace-nowrap bg-white/50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-                      >
-                        <span className="mr-1">{item.name}</span>
-                        <ChevronDownIcon
-                          className={`h-4 w-4 transition-transform duration-200 ${
-                            openDropdown === item.name ? 'rotate-180' : ''
-                          }`}
-                        />
-                      </button>
-                      {openDropdown === item.name && (
-                        <div className="fixed bottom-16 left-0 right-0 bg-white dark:bg-gray-800 shadow-lg py-1 z-50 border-t border-gray-200 dark:border-gray-700 max-h-[60vh] overflow-y-auto">
-                          <div className="max-w-md mx-auto px-4">
-                            <div className="grid grid-cols-1 gap-1">
-                              {item.dropdown.map((subItem) => (
-                                <Link
-                                  key={subItem.name}
-                                  href={subItem.href}
-                                  className="flex items-center px-4 py-3 text-base text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg"
-                                  onClick={() => setOpenDropdown(null)}
-                                >
-                                  <subItem.icon className="h-5 w-5 mr-3 text-gray-400 flex-shrink-0" />
-                                  <span className="truncate">{subItem.name}</span>
-                                </Link>
-                              ))}
-                            </div>
-                          </div>
-                        </div>
-                      )}
+                    <div className="flex space-x-2">
+                      {item.dropdown.map((subItem) => (
+                        <Link
+                          key={subItem.name}
+                          href={subItem.href}
+                          className="inline-flex flex-col items-center justify-center px-4 py-2 rounded-lg bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200 min-w-[80px]"
+                        >
+                          <subItem.icon className="h-5 w-5 text-gray-600 dark:text-gray-300 mb-1" />
+                          <span className="text-xs font-medium text-gray-700 dark:text-gray-200">{subItem.name}</span>
+                        </Link>
+                      ))}
                     </div>
                   ) : (
                     <Link
                       href={item.href}
-                      className="px-3 py-2 text-sm font-medium rounded-lg whitespace-nowrap bg-white/50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-                      onClick={() => setOpenDropdown(null)}
+                      className="inline-flex flex-col items-center justify-center px-4 py-2 rounded-lg bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200 min-w-[80px]"
                     >
-                      {item.name}
+                      <span className="text-xs font-medium text-gray-700 dark:text-gray-200">{item.name}</span>
                     </Link>
                   )}
                 </div>
               ))}
+              
+              {/* Theme Toggle */}
+              <button
+                onClick={toggleDarkMode}
+                className="flex-shrink-0 flex flex-col items-center justify-center px-4 py-2 rounded-lg bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200 min-w-[80px]"
+              >
+                {darkMode ? (
+                  <SunIcon className="h-5 w-5 text-yellow-500 mb-1" />
+                ) : (
+                  <MoonIcon className="h-5 w-5 text-gray-600 mb-1" />
+                )}
+                <span className="text-xs font-medium text-gray-700 dark:text-gray-200">
+                  {darkMode ? 'Light' : 'Dark'}
+                </span>
+              </button>
+              
+              {/* Get Started Button */}
+              <Link
+                href="/contact"
+                className="flex-shrink-0 inline-flex items-center justify-center px-4 py-2 rounded-lg bg-gradient-to-r from-green-600 to-teal-600 text-white font-medium hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-blue-500/20 dark:shadow-purple-900/20 text-sm"
+              >
+                Get Started
+              </Link>
             </div>
           </div>
-          <button
-            onClick={toggleDarkMode}
-            className="ml-2 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-            aria-label="Toggle dark mode"
-          >
-            {darkMode ? (
-              <SunIcon className="h-5 w-5 text-yellow-500" />
-            ) : (
-              <MoonIcon className="h-5 w-5 text-gray-600 dark:text-gray-400" />
-            )}
-          </button>
         </div>
+        
+        {/* Add some styles for the scrollbar */}
         <style jsx>{`
           .hide-scrollbar {
             -ms-overflow-style: none;
@@ -276,14 +254,6 @@ export default function Navbar() {
           }
         `}</style>
       </div>
-      <style jsx global>{`
-        /* Prevent body scroll when dropdown is open */
-        body.menu-open {
-          overflow: hidden;
-          position: fixed;
-          width: 100%;
-        }
-      `}</style>
     </header>
   )
 }
