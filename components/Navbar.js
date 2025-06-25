@@ -199,36 +199,37 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'tween', duration: 0.3 }}
-              className="fixed inset-y-0 right-0 z-50 w-full max-w-sm overflow-y-auto bg-white dark:bg-gray-900 p-6 shadow-2xl"
+              className="fixed inset-y-0 right-0 z-50 w-full max-w-sm bg-white dark:bg-gray-900 shadow-2xl flex flex-col"
             >
-              <div className="flex items-center justify-between">
-                <Link href="/" className="-m-1.5 p-1.5">
-                  <span className="text-2xl font-bold text-gradient">AInnovia</span>
-                </Link>
-                <button
-                  type="button"
-                  className="absolute right-4 top-4 rounded-md p-2 text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  <span className="sr-only">Close menu</span>
-                  <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                </button>
+              <div className="p-6">
+                <div className="flex items-center justify-between">
+                  <Link href="/" className="-m-1.5 p-1.5">
+                    <span className="text-2xl font-bold text-gradient">AInnovia</span>
+                  </Link>
+                  <button
+                    type="button"
+                    className="rounded-md p-2 text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <span className="sr-only">Close menu</span>
+                    <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                  </button>
+                </div>
               </div>
-              <div className="mt-6 flow-root">
-                <div className="-my-6 divide-y divide-gray-200 dark:divide-gray-700">
-                  <div className="space-y-2 py-6 px-3">
-                    {navigation.map((item) => (
-                      <div key={item.name} className="border-b border-gray-100 dark:border-gray-800 last:border-0 pb-2 last:pb-0">
+              <div className="flex-1 overflow-y-auto px-4 py-2">
+                <nav className="space-y-1">
+                  {navigation.map((item) => (
+                    <div key={item.name} className="border-b border-gray-100 dark:border-gray-800 last:border-0 py-2 last:pb-0">
                         {item.dropdown ? (
                           <div className="space-y-1">
                             <button
                               type="button"
-                              className="flex w-full items-center justify-between rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                              className="flex w-full items-center justify-between rounded-lg py-3 px-3 text-base font-semibold text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
                               onClick={() => setOpenDropdown(openDropdown === item.name ? null : item.name)}
                             >
-                              {item.name}
+                              <span>{item.name}</span>
                               <ChevronDownIcon
-                                className={`h-5 w-5 flex-none transition-transform duration-200 ${
+                                className={`h-5 w-5 flex-shrink-0 transition-transform duration-200 ${
                                   openDropdown === item.name ? 'rotate-180' : ''
                                 }`}
                                 aria-hidden="true"
@@ -248,11 +249,11 @@ export default function Navbar() {
                                       <Link
                                         key={subItem.name}
                                         href={subItem.href}
-                                        className="flex items-center gap-3 rounded-lg py-2 px-3 text-sm font-medium text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 transition-colors"
+                                        className="flex items-center gap-3 rounded-lg py-2.5 px-3 text-sm font-medium text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 transition-colors"
                                         onClick={() => setMobileMenuOpen(false)}
                                       >
                                         <subItem.icon className="h-5 w-5 flex-shrink-0 text-gray-400" />
-                                        {subItem.name}
+                                        <span>{subItem.name}</span>
                                       </Link>
                                     ))}
                                   </div>
@@ -263,7 +264,7 @@ export default function Navbar() {
                         ) : (
                           <Link
                             href={item.href}
-                            className="block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                            className="block rounded-lg px-3 py-3 text-base font-semibold text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
                             onClick={() => setMobileMenuOpen(false)}
                           >
                             {item.name}
@@ -271,32 +272,31 @@ export default function Navbar() {
                         )}
                       </div>
                     ))}
-                  </div>
-                  <div className="py-6 space-y-4">
-                    <button
-                      onClick={toggleDarkMode}
-                      className="flex items-center gap-2 w-full p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200"
-                    >
-                      {darkMode ? (
-                        <>
-                          <SunIcon className="h-5 w-5 text-yellow-500" />
-                          <span className="text-sm">Light Mode</span>
-                        </>
-                      ) : (
-                        <>
-                          <MoonIcon className="h-5 w-5 text-gray-600" />
-                          <span className="text-sm">Dark Mode</span>
-                        </>
-                      )}
-                    </button>
-                    <Link
-                      href="/contact"
-                      className="btn-primary block text-center"
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      Get Started
-                    </Link>
-                  </div>
+                </nav>
+                <div className="mt-6 pt-6 border-t border-gray-100 dark:border-gray-800 space-y-4">
+                  <button
+                    onClick={toggleDarkMode}
+                    className="flex items-center gap-2 w-full p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200"
+                  >
+                    {darkMode ? (
+                      <>
+                        <SunIcon className="h-5 w-5 text-yellow-500" />
+                        <span className="text-sm">Light Mode</span>
+                      </>
+                    ) : (
+                      <>
+                        <MoonIcon className="h-5 w-5 text-gray-600" />
+                        <span className="text-sm">Dark Mode</span>
+                      </>
+                    )}
+                  </button>
+                  <Link
+                    href="/contact"
+                    className="btn-primary block text-center"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Get Started
+                  </Link>
                 </div>
               </div>
             </motion.div>
