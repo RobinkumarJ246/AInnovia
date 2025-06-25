@@ -14,7 +14,7 @@ export default function Home() {
       <Hero />
       <ProblemStatement />
       <Solution />
-      <MarketOpportunity />
+      {/* <MarketOpportunity /> */}
       <NewsLetter />
       <Footer />
       <AIchat position={{ bottom: 10, right: 20 }} />
