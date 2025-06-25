@@ -124,7 +124,7 @@ export default function Hero() {
                     </span>
                     <span className="text-gray-600 dark:text-gray-400">accuracy</span>
                   </span>
-                  <span className="ml-0">making advanced diagnostics accessible globally.</span>
+                  <span className="ml-0"> making advanced diagnostics accessible globally.</span>
                 </motion.p>
               </motion.div>
               

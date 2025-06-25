@@ -34,7 +34,7 @@ const teamMembers = [
     achievements: "Led development of 3 AI diagnostic platforms",
     email: "sanchita@ainnovia.ai",
     social: {
-      linkedin: "https://linkedin.com/in/sanchita-mukherjee",
+      linkedin: "http://www.linkedin.com/in/sanchita-mukherjee-phd",
       twitter: null,
       instagram: null,
       facebook: null
@@ -51,7 +51,7 @@ const teamMembers = [
     achievements: "30+ years clinical experience, 100+ publications",
     email: "sudipta@ainnovia.ai",
     social: {
-      linkedin: "https://linkedin.com/in/sudipta-roy-md",
+      linkedin: "http://linkedin.com/in/sudipta-roy-52164764",
       twitter: null,
       instagram: null,
       facebook: "https://facebook.com/sudipta.roy.research"
@@ -70,7 +70,7 @@ const teamMembers = [
     social: {
       linkedin: "https://linkedin.com/in/saikat-barik",
       twitter: null,
-      instagram: "https://instagram.com/dr.saikat.barik",
+      instagram: null,
       facebook: null
     }
   }
@@ -85,7 +85,7 @@ const advisors = [
     initials: "DR",
     email: "devanathan@ainnovia.ai",
     social: {
-      linkedin: "https://linkedin.com/in/devanathan-raghunathan",
+      linkedin: "http://linkedin.com/in/draghun",
       twitter: null,
       instagram: null,
       facebook: null
@@ -99,10 +99,10 @@ const advisors = [
     initials: "SG",
     email: "shounak@ainnovia.ai",
     social: {
-      linkedin: "https://linkedin.com/in/shounak-ghosh",
+      linkedin: "https://www.medijourney.co.in/doctor/dr-shounak-ghosh",
       twitter: null,
       instagram: null,
-      facebook: "https://facebook.com/shounak.ghosh.clinic"
+      facebook: null
     }
   },
   {
