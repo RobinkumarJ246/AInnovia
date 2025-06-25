@@ -34,6 +34,19 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [darkMode, setDarkMode] = useState(false)
   const [openDropdown, setOpenDropdown] = useState(null)
+
+  // Toggle body scroll when dropdown is open
+  useEffect(() => {
+    if (openDropdown) {
+      document.body.classList.add('menu-open')
+    } else {
+      document.body.classList.remove('menu-open')
+    }
+    
+    return () => {
+      document.body.classList.remove('menu-open')
+    }
+  }, [openDropdown])
   const [mounted, setMounted] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -182,7 +195,14 @@ export default function Navbar() {
       </nav>
       
       {/* Mobile Navigation - Horizontal Scrollable */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg border-t border-gray-200 dark:border-gray-800 shadow-lg">
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/90 dark:bg-gray-900/90 backdrop-blur-lg border-t border-gray-200 dark:border-gray-800 shadow-lg">
+        {/* Click outside to close dropdown */}
+        {openDropdown && (
+          <div 
+            className="fixed inset-0 bg-black/20 z-30"
+            onClick={() => setOpenDropdown(null)}
+          />
+        )}
         <div className="flex items-center justify-between px-4 py-2">
           <div className="flex-1 overflow-x-auto hide-scrollbar">
             <div className="flex space-x-1 py-2">
@@ -202,18 +222,22 @@ export default function Navbar() {
                         />
                       </button>
                       {openDropdown === item.name && (
-                        <div className="absolute bottom-full left-0 mb-2 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-lg py-1 z-50">
-                          {item.dropdown.map((subItem) => (
-                            <Link
-                              key={subItem.name}
-                              href={subItem.href}
-                              className="flex items-center px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
-                              onClick={() => setOpenDropdown(null)}
-                            >
-                              <subItem.icon className="h-4 w-4 mr-2 text-gray-400" />
-                              {subItem.name}
-                            </Link>
-                          ))}
+                        <div className="fixed bottom-16 left-0 right-0 bg-white dark:bg-gray-800 shadow-lg py-1 z-50 border-t border-gray-200 dark:border-gray-700 max-h-[60vh] overflow-y-auto">
+                          <div className="max-w-md mx-auto px-4">
+                            <div className="grid grid-cols-1 gap-1">
+                              {item.dropdown.map((subItem) => (
+                                <Link
+                                  key={subItem.name}
+                                  href={subItem.href}
+                                  className="flex items-center px-4 py-3 text-base text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg"
+                                  onClick={() => setOpenDropdown(null)}
+                                >
+                                  <subItem.icon className="h-5 w-5 mr-3 text-gray-400 flex-shrink-0" />
+                                  <span className="truncate">{subItem.name}</span>
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
                         </div>
                       )}
                     </div>
@@ -252,6 +276,14 @@ export default function Navbar() {
           }
         `}</style>
       </div>
+      <style jsx global>{`
+        /* Prevent body scroll when dropdown is open */
+        body.menu-open {
+          overflow: hidden;
+          position: fixed;
+          width: 100%;
+        }
+      `}</style>
     </header>
   )
 }
