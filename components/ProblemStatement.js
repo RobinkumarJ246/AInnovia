@@ -35,9 +35,9 @@ const problems = [
   },
   {
     icon: Clock,
-    title: "~20 minutes",
+    title: "Time consuming Manual diagnosis",
     description: "Current manual diagnosis takes ~20 minutes per sample, with subjective and non-reproducible results.",
-    stat: "20min",
+    stat: "Time consuming",
     color: "from-yellow-500 to-orange-500",
     bgColor: "from-yellow-50 to-orange-50 dark:from-yellow-900/10 dark:to-orange-900/10",
     iconBg: "bg-yellow-100 dark:bg-yellow-900/20"
