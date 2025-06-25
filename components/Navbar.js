@@ -181,128 +181,77 @@ export default function Navbar() {
         </div>
       </nav>
       
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <div className="lg:hidden">
-            {/* Backdrop */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm"
-              onClick={() => setMobileMenuOpen(false)}
-            />
-            
-            {/* Mobile menu panel */}
-            <motion.div
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'tween', duration: 0.3 }}
-              className="fixed inset-y-0 right-0 z-50 w-full max-w-sm bg-white dark:bg-gray-900 shadow-2xl flex flex-col"
-            >
-              <div className="p-6">
-                <div className="flex items-center justify-between">
-                  <Link href="/" className="-m-1.5 p-1.5">
-                    <span className="text-2xl font-bold text-gradient">AInnovia</span>
-                  </Link>
-                  <button
-                    type="button"
-                    className="rounded-md p-2 text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    <span className="sr-only">Close menu</span>
-                    <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                  </button>
-                </div>
-              </div>
-              <div className="flex-1 overflow-y-auto px-4 py-2">
-                <nav className="space-y-1">
-                  {navigation.map((item) => (
-                    <div key={item.name} className="border-b border-gray-100 dark:border-gray-800 last:border-0 py-2 last:pb-0">
-                        {item.dropdown ? (
-                          <div className="space-y-1">
-                            <button
-                              type="button"
-                              className="flex w-full items-center justify-between rounded-lg py-3 px-3 text-base font-semibold text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-                              onClick={() => setOpenDropdown(openDropdown === item.name ? null : item.name)}
+      {/* Mobile Navigation - Horizontal Scrollable */}
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg border-t border-gray-200 dark:border-gray-800 shadow-lg">
+        <div className="flex items-center justify-between px-4 py-2">
+          <div className="flex-1 overflow-x-auto hide-scrollbar">
+            <div className="flex space-x-1 py-2">
+              {navigation.map((item) => (
+                <div key={item.name} className="relative flex-shrink-0">
+                  {item.dropdown ? (
+                    <div className="relative">
+                      <button
+                        onClick={() => setOpenDropdown(openDropdown === item.name ? null : item.name)}
+                        className="flex items-center px-3 py-2 text-sm font-medium rounded-lg whitespace-nowrap bg-white/50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                      >
+                        <span className="mr-1">{item.name}</span>
+                        <ChevronDownIcon
+                          className={`h-4 w-4 transition-transform duration-200 ${
+                            openDropdown === item.name ? 'rotate-180' : ''
+                          }`}
+                        />
+                      </button>
+                      {openDropdown === item.name && (
+                        <div className="absolute bottom-full left-0 mb-2 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-lg py-1 z-50">
+                          {item.dropdown.map((subItem) => (
+                            <Link
+                              key={subItem.name}
+                              href={subItem.href}
+                              className="flex items-center px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                              onClick={() => setOpenDropdown(null)}
                             >
-                              <span>{item.name}</span>
-                              <ChevronDownIcon
-                                className={`h-5 w-5 flex-shrink-0 transition-transform duration-200 ${
-                                  openDropdown === item.name ? 'rotate-180' : ''
-                                }`}
-                                aria-hidden="true"
-                              />
-                            </button>
-                            <AnimatePresence>
-                              {openDropdown === item.name && (
-                                <motion.div
-                                  initial={{ opacity: 0, height: 0 }}
-                                  animate={{ opacity: 1, height: 'auto' }}
-                                  exit={{ opacity: 0, height: 0 }}
-                                  transition={{ duration: 0.2 }}
-                                  className="overflow-hidden pl-2 ml-4 border-l-2 border-gray-100 dark:border-gray-700"
-                                >
-                                  <div className="space-y-1 py-1">
-                                    {item.dropdown.map((subItem) => (
-                                      <Link
-                                        key={subItem.name}
-                                        href={subItem.href}
-                                        className="flex items-center gap-3 rounded-lg py-2.5 px-3 text-sm font-medium text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 transition-colors"
-                                        onClick={() => setMobileMenuOpen(false)}
-                                      >
-                                        <subItem.icon className="h-5 w-5 flex-shrink-0 text-gray-400" />
-                                        <span>{subItem.name}</span>
-                                      </Link>
-                                    ))}
-                                  </div>
-                                </motion.div>
-                              )}
-                            </AnimatePresence>
-                          </div>
-                        ) : (
-                          <Link
-                            href={item.href}
-                            className="block rounded-lg px-3 py-3 text-base font-semibold text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-                            onClick={() => setMobileMenuOpen(false)}
-                          >
-                            {item.name}
-                          </Link>
-                        )}
-                      </div>
-                    ))}
-                </nav>
-                <div className="mt-6 pt-6 border-t border-gray-100 dark:border-gray-800 space-y-4">
-                  <button
-                    onClick={toggleDarkMode}
-                    className="flex items-center gap-2 w-full p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200"
-                  >
-                    {darkMode ? (
-                      <>
-                        <SunIcon className="h-5 w-5 text-yellow-500" />
-                        <span className="text-sm">Light Mode</span>
-                      </>
-                    ) : (
-                      <>
-                        <MoonIcon className="h-5 w-5 text-gray-600" />
-                        <span className="text-sm">Dark Mode</span>
-                      </>
-                    )}
-                  </button>
-                  <Link
-                    href="/contact"
-                    className="btn-primary block text-center"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    Get Started
-                  </Link>
+                              <subItem.icon className="h-4 w-4 mr-2 text-gray-400" />
+                              {subItem.name}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      className="px-3 py-2 text-sm font-medium rounded-lg whitespace-nowrap bg-white/50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                      onClick={() => setOpenDropdown(null)}
+                    >
+                      {item.name}
+                    </Link>
+                  )}
                 </div>
-              </div>
-            </motion.div>
+              ))}
+            </div>
           </div>
-        )}
-      </AnimatePresence>
+          <button
+            onClick={toggleDarkMode}
+            className="ml-2 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+            aria-label="Toggle dark mode"
+          >
+            {darkMode ? (
+              <SunIcon className="h-5 w-5 text-yellow-500" />
+            ) : (
+              <MoonIcon className="h-5 w-5 text-gray-600 dark:text-gray-400" />
+            )}
+          </button>
+        </div>
+        <style jsx>{`
+          .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+          }
+          .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+          }
+        `}</style>
+      </div>
     </header>
   )
 }
