@@ -216,53 +216,21 @@ export default function Navbar() {
               </div>
               <div className="mt-6 flow-root">
                 <div className="-my-6 divide-y divide-gray-200 dark:divide-gray-700">
-                  <div className="space-y-2 py-6 px-6">
+                  <div className="space-y-2 py-6 px-3">
                     {navigation.map((item) => (
-                      <div key={item.name}>
+                      <div key={item.name} className="border-b border-gray-100 dark:border-gray-800 last:border-0 pb-2 last:pb-0">
                         {item.dropdown ? (
-                          <div className="mb-4">
-                            <div className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider px-3 mb-2">
-                              {item.name}
-                            </div>
-                            <div className="space-y-1 pl-2 border-l-2 border-gray-100 dark:border-gray-700">
-                              {item.dropdown.map((subItem) => (
-                                <Link
-                                  key={subItem.name}
-                                  href={subItem.href}
-                                  className="flex items-center gap-x-3 rounded-lg px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-800"
-                                  onClick={() => setMobileMenuOpen(false)}
-                                >
-                                  <subItem.icon className="h-5 w-5 flex-shrink-0 text-gray-400" />
-                                  {subItem.name}
-                                </Link>
-                              ))}
-                            </div>
-                          </div>
-                        ) : (
-                          <div className="-mx-3">
-                            <Link
-                              href={item.href}
-                              className="block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-                              onClick={() => setMobileMenuOpen(false)}
-                            >
-                              {item.name}
-                            </Link>
-                          </div>
-                        )}
-                      </div>
-                    ))}
-                    {navigation.map((item) => (
-                      <div key={item.name}>
-                        {item.dropdown && (
-                          <div className="-mx-3">
+                          <div className="space-y-1">
                             <button
                               type="button"
-                              className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                              className="flex w-full items-center justify-between rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
                               onClick={() => setOpenDropdown(openDropdown === item.name ? null : item.name)}
                             >
                               {item.name}
                               <ChevronDownIcon
-                                className={`h-5 w-5 flex-none transition-transform duration-200 ${openDropdown === item.name ? 'rotate-180' : ''}`}
+                                className={`h-5 w-5 flex-none transition-transform duration-200 ${
+                                  openDropdown === item.name ? 'rotate-180' : ''
+                                }`}
                                 aria-hidden="true"
                               />
                             </button>
@@ -273,17 +241,17 @@ export default function Navbar() {
                                   animate={{ opacity: 1, height: 'auto' }}
                                   exit={{ opacity: 0, height: 0 }}
                                   transition={{ duration: 0.2 }}
-                                  className="overflow-hidden"
+                                  className="overflow-hidden pl-2 ml-4 border-l-2 border-gray-100 dark:border-gray-700"
                                 >
-                                  <div className="mt-1 space-y-1 pl-4 border-l-2 border-gray-200 dark:border-gray-700">
+                                  <div className="space-y-1 py-1">
                                     {item.dropdown.map((subItem) => (
                                       <Link
                                         key={subItem.name}
                                         href={subItem.href}
-                                        className="flex items-center gap-2 rounded-lg py-2 pl-3 pr-3 text-sm font-medium text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 transition-colors"
+                                        className="flex items-center gap-3 rounded-lg py-2 px-3 text-sm font-medium text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 transition-colors"
                                         onClick={() => setMobileMenuOpen(false)}
                                       >
-                                        <subItem.icon className="h-4 w-4" />
+                                        <subItem.icon className="h-5 w-5 flex-shrink-0 text-gray-400" />
                                         {subItem.name}
                                       </Link>
                                     ))}
@@ -292,6 +260,14 @@ export default function Navbar() {
                               )}
                             </AnimatePresence>
                           </div>
+                        ) : (
+                          <Link
+                            href={item.href}
+                            className="block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                            onClick={() => setMobileMenuOpen(false)}
+                          >
+                            {item.name}
+                          </Link>
                         )}
                       </div>
                     ))}
