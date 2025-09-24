@@ -22,7 +22,7 @@ const navigation = [
     dropdown: [
       { name: 'About', href: '/about', icon: UserCircleIcon },
       { name: 'Blog', href: '/blog', icon: BookOpenIcon },
-      { name: 'Team', href: '/team', icon: UserGroupIcon },
+      //{ name: 'Team', href: '/team', icon: UserGroupIcon },
     ]
   },
   { name: 'Solutions', href: '/solutions' },
