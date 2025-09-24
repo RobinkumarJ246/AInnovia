@@ -2,6 +2,8 @@
 
 import { motion } from 'framer-motion'
 import { useState, useEffect, useRef } from 'react'
+import { featureFlags } from '../../config/flags'
+import RestrictedPage from '../../components/RestrictedPage'
 import { createPortal } from 'react-dom'
 import { 
   AcademicCapIcon, 
@@ -407,6 +409,10 @@ const SocialButton = ({ platform, url, icon, label, colorClass }) => {
 }
 
 export default function Team() {
+  if (!featureFlags.TEAM_PAGE_ENABLED) {
+    return <RestrictedPage />;
+  }
+
   return (
     <main className="overflow-hidden">
       <Navbar />
